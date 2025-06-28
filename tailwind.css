@@ -1,0 +1,201 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  /* Primary Colors - Yellow/Orange Ramp */
+  --primarysolid-10: rgba(255, 248, 204, 1);
+  --primarysolid-20: rgba(255, 241, 153, 1);
+  --primarysolid-30: rgba(255, 234, 102, 1);
+  --primarysolid-40: rgba(255, 227, 51, 1);
+  --primarysolid-50: rgba(255, 221, 0, 1);
+  --primarysolid-60: rgba(255, 170, 0, 1);
+  --primarysolid-70: rgba(255, 136, 0, 1);
+  --primarysolid-80: rgba(255, 102, 0, 1);
+  --primarysolid-90: rgba(255, 68, 0, 1);
+
+  /* Secondary Colors - Blue Ramp */
+  --secondarysolid-10: rgba(204, 230, 255, 1);
+  --secondarysolid-20: rgba(153, 205, 255, 1);
+  --secondarysolid-30: rgba(102, 180, 255, 1);
+  --secondarysolid-40: rgba(51, 155, 255, 1);
+  --secondarysolid-50: rgba(0, 130, 255, 1);
+  --secondarysolid-60: rgba(0, 80, 157, 1);
+  --secondarysolid-70: rgba(0, 65, 128, 1);
+  --secondarysolid-80: rgba(0, 50, 99, 1);
+  --secondarysolid-90: rgba(0, 35, 70, 1);
+
+  /* Neutral/Black Colors */
+  --black-10: rgba(0, 20, 41, 0.1);
+  --black-20: rgba(0, 20, 41, 0.2);
+  --black-30: rgba(0, 20, 41, 0.3);
+  --black-40: rgba(0, 20, 41, 0.4);
+  --black-50: rgba(76, 87, 132, 1);
+  --black-60: rgba(0, 20, 41, 0.6);
+  --black-70: rgba(0, 20, 41, 0.7);
+  --black-80: rgba(0, 20, 41, 0.8);
+  --black-90: rgba(0, 20, 41, 0.9);
+  --black-100: rgba(0, 20, 41, 1);
+
+  /* White */
+  --white-100: rgba(255, 255, 255, 1);
+
+  /* Error/Communication Colors - Pink/Red Ramp */
+  --error-10: rgba(254, 242, 242, 1);
+  --error-20: rgba(254, 226, 226, 1);
+  --error-30: rgba(252, 165, 165, 1);
+  --error-40: rgba(248, 113, 113, 1);
+  --error-50: rgba(239, 68, 68, 1);
+  --error-60: rgba(220, 38, 38, 1);
+  --error-70: rgba(185, 28, 28, 1);
+  --error-80: rgba(153, 27, 27, 1);
+  --error-90: rgba(127, 29, 29, 1);
+  --communicationsoliderror: rgba(243, 12, 89, 1);
+
+  /* Success Colors - Green Ramp */
+  --success-10: rgba(240, 253, 244, 1);
+  --success-20: rgba(220, 252, 231, 1);
+  --success-30: rgba(134, 239, 172, 1);
+  --success-40: rgba(74, 222, 128, 1);
+  --success-50: rgba(34, 197, 94, 1);
+  --success-60: rgba(22, 163, 74, 1);
+  --success-70: rgba(21, 128, 61, 1);
+  --success-80: rgba(22, 101, 52, 1);
+  --success-90: rgba(20, 83, 45, 1);
+
+  /* Warning Colors - Amber/Orange Ramp */
+  --warning-10: rgba(255, 251, 235, 1);
+  --warning-20: rgba(254, 243, 199, 1);
+  --warning-30: rgba(253, 230, 138, 1);
+  --warning-40: rgba(252, 211, 77, 1);
+  --warning-50: rgba(245, 158, 11, 1);
+  --warning-60: rgba(217, 119, 6, 1);
+  --warning-70: rgba(180, 83, 9, 1);
+  --warning-80: rgba(146, 64, 14, 1);
+  --warning-90: rgba(120, 53, 15, 1);
+
+  /* Info Colors - Cyan/Blue Ramp */
+  --info-10: rgba(236, 254, 255, 1);
+  --info-20: rgba(207, 250, 254, 1);
+  --info-30: rgba(165, 243, 252, 1);
+  --info-40: rgba(103, 232, 249, 1);
+  --info-50: rgba(6, 182, 212, 1);
+  --info-60: rgba(8, 145, 178, 1);
+  --info-70: rgba(14, 116, 144, 1);
+  --info-80: rgba(21, 94, 117, 1);
+  --info-90: rgba(22, 78, 99, 1);
+
+  /* Typography Variables */
+  --text-12-med-font-family: "Inter", Helvetica;
+  --text-12-med-font-size: 12px;
+  --text-12-med-font-style: normal;
+  --text-12-med-font-weight: 500;
+  --text-12-med-letter-spacing: 0px;
+  --text-12-med-line-height: 16px;
+  --text-16-med-font-family: "Inter", Helvetica;
+  --text-16-med-font-size: 16px;
+  --text-16-med-font-style: normal;
+  --text-16-med-font-weight: 500;
+  --text-16-med-letter-spacing: 0px;
+  --text-16-med-line-height: 24px;
+  --title-16-black-font-family: "Inter", Helvetica;
+  --title-16-black-font-size: 16px;
+  --title-16-black-font-style: normal;
+  --title-16-black-font-weight: 900;
+  --title-16-black-letter-spacing: 0px;
+  --title-16-black-line-height: 24px;
+  --title-24-black-font-family: "Inter", Helvetica;
+  --title-24-black-font-size: 24px;
+  --title-24-black-font-style: normal;
+  --title-24-black-font-weight: 900;
+  --title-24-black-letter-spacing: 0px;
+  --title-24-black-line-height: 32px;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: transparent;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
