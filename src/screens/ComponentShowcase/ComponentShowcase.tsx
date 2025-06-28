@@ -224,7 +224,7 @@ export const ComponentShowcase = (): JSX.Element => {
             <CardHeader>
               <CardTitle className="font-title-24-black text-black-100">Content Cards</CardTitle>
               <CardDescription className="font-text-16-med text-black-60">
-                Elevated content cards with images, text, and action buttons
+                Elevated content cards with images, text, and action buttons using the proper color system
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -327,7 +327,7 @@ export const ComponentShowcase = (): JSX.Element => {
             <CardHeader>
               <CardTitle className="font-title-24-black text-black-100">Enhanced RetroMorphic Buttons</CardTitle>
               <CardDescription className="font-text-16-med text-black-60">
-                Raised buttons with tactile press animations and elevation effects
+                Raised buttons with tactile press animations and elevation effects using the proper color system
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-8">
@@ -402,6 +402,66 @@ export const ComponentShowcase = (): JSX.Element => {
                     <Button variant="outline" size="lg">
                       Large Button
                     </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Color System Demo */}
+              <div className="space-y-4">
+                <h4 className="font-title-16-black text-black-100">Color System in Action</h4>
+                <div className="p-6 bg-secondarysolid-10 rounded-2xl border-2 border-[#001428]">
+                  <p className="font-text-16-med text-black-60 mb-6">
+                    See how the proper color system creates consistent, accessible, and visually appealing button designs:
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <h5 className="font-title-16-black text-black-100">Primary Actions (Yellow)</h5>
+                      <div className="space-y-3">
+                        <Button className="w-full">Get Started</Button>
+                        <Button className="w-full">
+                          <StarIcon className="w-4 h-4 mr-2" />
+                          Add to Favorites
+                        </Button>
+                        <Button size="lg" className="w-full">
+                          <PlayIcon className="w-4 h-4 mr-2" />
+                          Start Experience
+                        </Button>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <h5 className="font-title-16-black text-black-100">Secondary Actions (Blue)</h5>
+                      <div className="space-y-3">
+                        <Button variant="secondary" className="w-full">Learn More</Button>
+                        <Button variant="secondary" className="w-full">
+                          <BookmarkIcon className="w-4 h-4 mr-2" />
+                          Save for Later
+                        </Button>
+                        <Button variant="secondary" size="lg" className="w-full">
+                          <EyeIcon className="w-4 h-4 mr-2" />
+                          Preview Content
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-6 border-t-2 border-[#001428]">
+                    <h5 className="font-title-16-black text-black-100 mb-4">Semantic Actions</h5>
+                    <div className="flex flex-wrap gap-3">
+                      <Button variant="destructive">
+                        <XCircleIcon className="w-4 h-4 mr-2" />
+                        Delete Item
+                      </Button>
+                      <Button variant="outline">
+                        <CheckCircleIcon className="w-4 h-4 mr-2" />
+                        Confirm Action
+                      </Button>
+                      <Button variant="ghost">
+                        <InfoIcon className="w-4 h-4 mr-2" />
+                        More Info
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
