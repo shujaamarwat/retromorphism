@@ -4,7 +4,7 @@ A comprehensive React component library featuring retro-styled UI components wit
 
 ## 🚀 Live Demo
 
-**[View Live Demo →](https://bolt-anima-project.netlify.app/)**
+**[View Live Demo →](https://chic-axolotl-368ff4.netlify.app/)**
 
 ## ✨ Features
 
