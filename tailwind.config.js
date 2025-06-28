@@ -128,10 +128,36 @@ module.exports = {
         },
       },
       fontFamily: {
-        "text-12-med": "var(--text-12-med-font-family)",
-        "text-16-med": "var(--text-16-med-font-family)",
-        "title-16-black": "var(--title-16-black-font-family)",
+        // Display Typography
+        "display-48-black": "var(--display-48-black-font-family)",
+        "display-40-black": "var(--display-40-black-font-family)",
+        "display-32-black": "var(--display-32-black-font-family)",
+
+        // Title Typography
+        "title-28-black": "var(--title-28-black-font-family)",
         "title-24-black": "var(--title-24-black-font-family)",
+        "title-20-black": "var(--title-20-black-font-family)",
+        "title-18-black": "var(--title-18-black-font-family)",
+        "title-16-black": "var(--title-16-black-font-family)",
+        "title-14-black": "var(--title-14-black-font-family)",
+
+        // Body Text Typography
+        "text-18-reg": "var(--text-18-reg-font-family)",
+        "text-18-med": "var(--text-18-med-font-family)",
+        "text-16-reg": "var(--text-16-reg-font-family)",
+        "text-16-med": "var(--text-16-med-font-family)",
+        "text-14-reg": "var(--text-14-reg-font-family)",
+        "text-14-med": "var(--text-14-med-font-family)",
+        "text-12-reg": "var(--text-12-reg-font-family)",
+        "text-12-med": "var(--text-12-med-font-family)",
+
+        // Caption Typography
+        "caption-11-reg": "var(--caption-11-reg-font-family)",
+        "caption-11-med": "var(--caption-11-med-font-family)",
+        "caption-10-reg": "var(--caption-10-reg-font-family)",
+        "caption-10-med": "var(--caption-10-med-font-family)",
+
+        // Default sans fallback
         sans: [
           "ui-sans-serif",
           "system-ui",
@@ -141,6 +167,36 @@ module.exports = {
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"',
         ],
+      },
+      fontSize: {
+        // Display sizes
+        'display-48': ['48px', { lineHeight: '56px', letterSpacing: '-0.02em', fontWeight: '900' }],
+        'display-40': ['40px', { lineHeight: '48px', letterSpacing: '-0.02em', fontWeight: '900' }],
+        'display-32': ['32px', { lineHeight: '40px', letterSpacing: '-0.01em', fontWeight: '900' }],
+
+        // Title sizes
+        'title-28': ['28px', { lineHeight: '36px', letterSpacing: '-0.01em', fontWeight: '900' }],
+        'title-24': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '900' }],
+        'title-20': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '900' }],
+        'title-18': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '900' }],
+        'title-16': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '900' }],
+        'title-14': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '900' }],
+
+        // Body text sizes
+        'text-18-reg': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+        'text-18-med': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '500' }],
+        'text-16-reg': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'text-16-med': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '500' }],
+        'text-14-reg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'text-14-med': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'text-12-reg': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '400' }],
+        'text-12-med': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '500' }],
+
+        // Caption sizes
+        'caption-11-reg': ['11px', { lineHeight: '14px', letterSpacing: '0px', fontWeight: '400' }],
+        'caption-11-med': ['11px', { lineHeight: '14px', letterSpacing: '0px', fontWeight: '500' }],
+        'caption-10-reg': ['10px', { lineHeight: '12px', letterSpacing: '0px', fontWeight: '400' }],
+        'caption-10-med': ['10px', { lineHeight: '12px', letterSpacing: '0px', fontWeight: '500' }],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -38,7 +38,8 @@ import {
   UserIcon,
   MailIcon,
   LockIcon,
-  PhoneIcon
+  PhoneIcon,
+  TypeIcon
 } from "lucide-react";
 
 export const ComponentShowcase = (): JSX.Element => {
@@ -54,27 +55,201 @@ export const ComponentShowcase = (): JSX.Element => {
         <div className="max-w-7xl mx-auto space-y-12">
           {/* Header */}
           <div className="text-center space-y-4">
-            <h1 className="text-4xl font-title-24-black text-black-100">
+            <h1 className="text-display-48 font-display-48-black text-black-100">
               RetroMorphism Design System
             </h1>
-            <p className="text-lg font-text-16-med text-black-60 max-w-2xl mx-auto">
+            <p className="text-text-18-reg font-text-18-reg text-black-60 max-w-2xl mx-auto">
               A comprehensive collection of retro-styled UI components with bold shadows, 
               vibrant colors, and tactile interactions.
             </p>
           </div>
 
+          {/* Typography Showcase */}
+          <Card className="bg-white-100 border-2 border-[#001428] shadow-[0_6px_0_#001428,0_8px_12px_rgba(0,20,40,0.3)] rounded-2xl">
+            <CardHeader>
+              <CardTitle className="text-title-24 font-title-24-black text-black-100">Typography System</CardTitle>
+              <CardDescription className="text-text-16-reg font-text-16-reg text-black-60">
+                Complete typography scale based on the Figma design system with display, title, body, and caption styles
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-8">
+              {/* Display Typography */}
+              <div className="space-y-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <TypeIcon className="w-6 h-6 text-primarysolid-60" />
+                  <h3 className="text-title-20 font-title-20-black text-black-100">Display Typography</h3>
+                </div>
+                <div className="space-y-4 p-6 bg-primarysolid-10 rounded-2xl border-2 border-[#001428]">
+                  <div className="space-y-2">
+                    <h1 className="text-display-48 font-display-48-black text-black-100">Display 48 Black</h1>
+                    <p className="text-text-12-med font-text-12-med text-black-60">48px • 900 weight • 56px line height • -0.02em letter spacing</p>
+                  </div>
+                  <div className="space-y-2">
+                    <h2 className="text-display-40 font-display-40-black text-black-100">Display 40 Black</h2>
+                    <p className="text-text-12-med font-text-12-med text-black-60">40px • 900 weight • 48px line height • -0.02em letter spacing</p>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-display-32 font-display-32-black text-black-100">Display 32 Black</h3>
+                    <p className="text-text-12-med font-text-12-med text-black-60">32px • 900 weight • 40px line height • -0.01em letter spacing</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Title Typography */}
+              <div className="space-y-6">
+                <h3 className="text-title-20 font-title-20-black text-black-100">Title Typography</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4 p-6 bg-secondarysolid-10 rounded-2xl border-2 border-[#001428]">
+                    <div className="space-y-2">
+                      <h4 className="text-title-28 font-title-28-black text-black-100">Title 28 Black</h4>
+                      <p className="text-text-12-med font-text-12-med text-black-60">28px • 900 weight • 36px line height</p>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-title-24 font-title-24-black text-black-100">Title 24 Black</h4>
+                      <p className="text-text-12-med font-text-12-med text-black-60">24px • 900 weight • 32px line height</p>
+                    </div>
+                    <div className="space-y-2">
+                      <h5 className="text-title-20 font-title-20-black text-black-100">Title 20 Black</h5>
+                      <p className="text-text-12-med font-text-12-med text-black-60">20px • 900 weight • 28px line height</p>
+                    </div>
+                  </div>
+                  <div className="space-y-4 p-6 bg-secondarysolid-10 rounded-2xl border-2 border-[#001428]">
+                    <div className="space-y-2">
+                      <h5 className="text-title-18 font-title-18-black text-black-100">Title 18 Black</h5>
+                      <p className="text-text-12-med font-text-12-med text-black-60">18px • 900 weight • 26px line height</p>
+                    </div>
+                    <div className="space-y-2">
+                      <h6 className="text-title-16 font-title-16-black text-black-100">Title 16 Black</h6>
+                      <p className="text-text-12-med font-text-12-med text-black-60">16px • 900 weight • 24px line height</p>
+                    </div>
+                    <div className="space-y-2">
+                      <h6 className="text-title-14 font-title-14-black text-black-100">Title 14 Black</h6>
+                      <p className="text-text-12-med font-text-12-med text-black-60">14px • 900 weight • 20px line height</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Body Text Typography */}
+              <div className="space-y-6">
+                <h3 className="text-title-20 font-title-20-black text-black-100">Body Text Typography</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4 p-6 bg-success-10 rounded-2xl border-2 border-[#001428]">
+                    <div className="space-y-2">
+                      <p className="text-text-18-reg font-text-18-reg text-black-100">Text 18 Regular - This is body text for larger content areas and important descriptions.</p>
+                      <p className="text-text-12-med font-text-12-med text-black-60">18px • 400 weight • 26px line height</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-text-18-med font-text-18-med text-black-100">Text 18 Medium - This is emphasized body text for important content.</p>
+                      <p className="text-text-12-med font-text-12-med text-black-60">18px • 500 weight • 26px line height</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-text-16-reg font-text-16-reg text-black-100">Text 16 Regular - Standard body text for most content areas and descriptions.</p>
+                      <p className="text-text-12-med font-text-12-med text-black-60">16px • 400 weight • 24px line height</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-text-16-med font-text-16-med text-black-100">Text 16 Medium - Emphasized standard body text for important information.</p>
+                      <p className="text-text-12-med font-text-12-med text-black-60">16px • 500 weight • 24px line height</p>
+                    </div>
+                  </div>
+                  <div className="space-y-4 p-6 bg-success-10 rounded-2xl border-2 border-[#001428]">
+                    <div className="space-y-2">
+                      <p className="text-text-14-reg font-text-14-reg text-black-100">Text 14 Regular - Smaller body text for secondary information and labels.</p>
+                      <p className="text-text-12-med font-text-12-med text-black-60">14px • 400 weight • 20px line height</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-text-14-med font-text-14-med text-black-100">Text 14 Medium - Emphasized smaller text for important labels.</p>
+                      <p className="text-text-12-med font-text-12-med text-black-60">14px • 500 weight • 20px line height</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-text-12-reg font-text-12-reg text-black-100">Text 12 Regular - Small text for metadata and supplementary information.</p>
+                      <p className="text-text-12-med font-text-12-med text-black-60">12px • 400 weight • 16px line height</p>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-text-12-med font-text-12-med text-black-100">Text 12 Medium - Emphasized small text for important metadata.</p>
+                      <p className="text-text-12-med font-text-12-med text-black-60">12px • 500 weight • 16px line height</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Caption Typography */}
+              <div className="space-y-6">
+                <h3 className="text-title-20 font-title-20-black text-black-100">Caption Typography</h3>
+                <div className="p-6 bg-warning-10 rounded-2xl border-2 border-[#001428]">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <p className="text-caption-11-reg font-caption-11-reg text-black-100">Caption 11 Regular - Very small text for fine print and micro-copy.</p>
+                        <p className="text-text-12-med font-text-12-med text-black-60">11px • 400 weight • 14px line height</p>
+                      </div>
+                      <div className="space-y-2">
+                        <p className="text-caption-11-med font-caption-11-med text-black-100">Caption 11 Medium - Emphasized very small text for important fine print.</p>
+                        <p className="text-text-12-med font-text-12-med text-black-60">11px • 500 weight • 14px line height</p>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <p className="text-caption-10-reg font-caption-10-reg text-black-100">Caption 10 Regular - Smallest text for timestamps and micro-labels.</p>
+                        <p className="text-text-12-med font-text-12-med text-black-60">10px • 400 weight • 12px line height</p>
+                      </div>
+                      <div className="space-y-2">
+                        <p className="text-caption-10-med font-caption-10-med text-black-100">Caption 10 Medium - Emphasized smallest text for important micro-labels.</p>
+                        <p className="text-text-12-med font-text-12-med text-black-60">10px • 500 weight • 12px line height</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Typography Usage Guidelines */}
+              <div className="p-6 bg-info-10 rounded-2xl border-2 border-[#001428]">
+                <h4 className="text-title-18 font-title-18-black text-black-100 mb-4">Typography Usage Guidelines</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="space-y-3">
+                    <h5 className="text-title-16 font-title-16-black text-black-100">Display & Titles</h5>
+                    <ul className="space-y-2 text-text-14-reg font-text-14-reg text-black-60">
+                      <li>• Display: Hero sections, landing pages</li>
+                      <li>• Title 28-24: Page headers, section titles</li>
+                      <li>• Title 20-16: Card headers, subsections</li>
+                      <li>• Title 14: Small component headers</li>
+                    </ul>
+                  </div>
+                  <div className="space-y-3">
+                    <h5 className="text-title-16 font-title-16-black text-black-100">Body Text</h5>
+                    <ul className="space-y-2 text-text-14-reg font-text-14-reg text-black-60">
+                      <li>• Text 18: Large content areas, articles</li>
+                      <li>• Text 16: Standard body text, descriptions</li>
+                      <li>• Text 14: Secondary info, form labels</li>
+                      <li>• Text 12: Metadata, small descriptions</li>
+                    </ul>
+                  </div>
+                  <div className="space-y-3">
+                    <h5 className="text-title-16 font-title-16-black text-black-100">Captions</h5>
+                    <ul className="space-y-2 text-text-14-reg font-text-14-reg text-black-60">
+                      <li>• Caption 11: Fine print, legal text</li>
+                      <li>• Caption 10: Timestamps, micro-labels</li>
+                      <li>• Use sparingly for accessibility</li>
+                      <li>• Ensure sufficient color contrast</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Color Palette Showcase */}
           <Card className="bg-white-100 border-2 border-[#001428] shadow-[0_6px_0_#001428,0_8px_12px_rgba(0,20,40,0.3)] rounded-2xl">
             <CardHeader>
-              <CardTitle className="font-title-24-black text-black-100">Complete Color System</CardTitle>
-              <CardDescription className="font-text-16-med text-black-60">
+              <CardTitle className="text-title-24 font-title-24-black text-black-100">Complete Color System</CardTitle>
+              <CardDescription className="text-text-16-reg font-text-16-reg text-black-60">
                 Full color palette with primary, secondary, semantic colors, and neutral tones
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-8">
               {/* Primary Colors */}
               <div className="space-y-4">
-                <h4 className="font-title-16-black text-black-100">Primary Colors (Yellow/Orange)</h4>
+                <h4 className="text-title-16 font-title-16-black text-black-100">Primary Colors (Yellow/Orange)</h4>
                 <div className="grid grid-cols-5 md:grid-cols-9 gap-3">
                   {[10, 20, 30, 40, 50, 60, 70, 80, 90].map((shade) => (
                     <div key={shade} className="text-center">
@@ -82,7 +257,7 @@ export const ComponentShowcase = (): JSX.Element => {
                         className={`w-16 h-16 rounded-xl border-2 border-[#001428] mb-2`}
                         style={{ backgroundColor: `var(--primarysolid-${shade})` }}
                       />
-                      <div className="text-xs font-text-12-med text-black-60">{shade}</div>
+                      <div className="text-caption-10-med font-caption-10-med text-black-60">{shade}</div>
                     </div>
                   ))}
                 </div>
@@ -90,7 +265,7 @@ export const ComponentShowcase = (): JSX.Element => {
 
               {/* Secondary Colors */}
               <div className="space-y-4">
-                <h4 className="font-title-16-black text-black-100">Secondary Colors (Blue)</h4>
+                <h4 className="text-title-16 font-title-16-black text-black-100">Secondary Colors (Blue)</h4>
                 <div className="grid grid-cols-5 md:grid-cols-9 gap-3">
                   {[10, 20, 30, 40, 50, 60, 70, 80, 90].map((shade) => (
                     <div key={shade} className="text-center">
@@ -98,7 +273,7 @@ export const ComponentShowcase = (): JSX.Element => {
                         className={`w-16 h-16 rounded-xl border-2 border-[#001428] mb-2`}
                         style={{ backgroundColor: `var(--secondarysolid-${shade})` }}
                       />
-                      <div className="text-xs font-text-12-med text-black-60">{shade}</div>
+                      <div className="text-caption-10-med font-caption-10-med text-black-60">{shade}</div>
                     </div>
                   ))}
                 </div>
@@ -108,7 +283,7 @@ export const ComponentShowcase = (): JSX.Element => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {/* Success Colors */}
                 <div className="space-y-3">
-                  <h5 className="font-title-16-black text-black-100">Success (Green)</h5>
+                  <h5 className="text-title-16 font-title-16-black text-black-100">Success (Green)</h5>
                   <div className="grid grid-cols-3 gap-2">
                     {[10, 50, 90].map((shade) => (
                       <div key={shade} className="text-center">
@@ -116,7 +291,7 @@ export const ComponentShowcase = (): JSX.Element => {
                           className={`w-12 h-12 rounded-lg border border-[#001428] mb-1`}
                           style={{ backgroundColor: `var(--success-${shade})` }}
                         />
-                        <div className="text-xs font-text-12-med text-black-60">{shade}</div>
+                        <div className="text-caption-10-med font-caption-10-med text-black-60">{shade}</div>
                       </div>
                     ))}
                   </div>
@@ -124,7 +299,7 @@ export const ComponentShowcase = (): JSX.Element => {
 
                 {/* Error Colors */}
                 <div className="space-y-3">
-                  <h5 className="font-title-16-black text-black-100">Error (Red)</h5>
+                  <h5 className="text-title-16 font-title-16-black text-black-100">Error (Red)</h5>
                   <div className="grid grid-cols-3 gap-2">
                     {[10, 50, 90].map((shade) => (
                       <div key={shade} className="text-center">
@@ -132,7 +307,7 @@ export const ComponentShowcase = (): JSX.Element => {
                           className={`w-12 h-12 rounded-lg border border-[#001428] mb-1`}
                           style={{ backgroundColor: `var(--error-${shade})` }}
                         />
-                        <div className="text-xs font-text-12-med text-black-60">{shade}</div>
+                        <div className="text-caption-10-med font-caption-10-med text-black-60">{shade}</div>
                       </div>
                     ))}
                   </div>
@@ -140,7 +315,7 @@ export const ComponentShowcase = (): JSX.Element => {
 
                 {/* Warning Colors */}
                 <div className="space-y-3">
-                  <h5 className="font-title-16-black text-black-100">Warning (Amber)</h5>
+                  <h5 className="text-title-16 font-title-16-black text-black-100">Warning (Amber)</h5>
                   <div className="grid grid-cols-3 gap-2">
                     {[10, 50, 90].map((shade) => (
                       <div key={shade} className="text-center">
@@ -148,7 +323,7 @@ export const ComponentShowcase = (): JSX.Element => {
                           className={`w-12 h-12 rounded-lg border border-[#001428] mb-1`}
                           style={{ backgroundColor: `var(--warning-${shade})` }}
                         />
-                        <div className="text-xs font-text-12-med text-black-60">{shade}</div>
+                        <div className="text-caption-10-med font-caption-10-med text-black-60">{shade}</div>
                       </div>
                     ))}
                   </div>
@@ -156,7 +331,7 @@ export const ComponentShowcase = (): JSX.Element => {
 
                 {/* Info Colors */}
                 <div className="space-y-3">
-                  <h5 className="font-title-16-black text-black-100">Info (Cyan)</h5>
+                  <h5 className="text-title-16 font-title-16-black text-black-100">Info (Cyan)</h5>
                   <div className="grid grid-cols-3 gap-2">
                     {[10, 50, 90].map((shade) => (
                       <div key={shade} className="text-center">
@@ -164,7 +339,7 @@ export const ComponentShowcase = (): JSX.Element => {
                           className={`w-12 h-12 rounded-lg border border-[#001428] mb-1`}
                           style={{ backgroundColor: `var(--info-${shade})` }}
                         />
-                        <div className="text-xs font-text-12-med text-black-60">{shade}</div>
+                        <div className="text-caption-10-med font-caption-10-med text-black-60">{shade}</div>
                       </div>
                     ))}
                   </div>
@@ -173,7 +348,7 @@ export const ComponentShowcase = (): JSX.Element => {
 
               {/* Neutral Colors */}
               <div className="space-y-4">
-                <h4 className="font-title-16-black text-black-100">Neutral Colors (Black Scale)</h4>
+                <h4 className="text-title-16 font-title-16-black text-black-100">Neutral Colors (Black Scale)</h4>
                 <div className="grid grid-cols-5 md:grid-cols-11 gap-3">
                   {[10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((shade) => (
                     <div key={shade} className="text-center">
@@ -181,7 +356,7 @@ export const ComponentShowcase = (): JSX.Element => {
                         className={`w-16 h-16 rounded-xl border-2 border-[#001428] mb-2`}
                         style={{ backgroundColor: `var(--black-${shade})` }}
                       />
-                      <div className="text-xs font-text-12-med text-black-60">{shade}</div>
+                      <div className="text-caption-10-med font-caption-10-med text-black-60">{shade}</div>
                     </div>
                   ))}
                   <div className="text-center">
@@ -189,30 +364,30 @@ export const ComponentShowcase = (): JSX.Element => {
                       className={`w-16 h-16 rounded-xl border-2 border-[#001428] mb-2`}
                       style={{ backgroundColor: `var(--white-100)` }}
                     />
-                    <div className="text-xs font-text-12-med text-black-60">W100</div>
+                    <div className="text-caption-10-med font-caption-10-med text-black-60">W100</div>
                   </div>
                 </div>
               </div>
 
               {/* Color Usage Demo */}
               <div className="p-6 bg-secondarysolid-10 rounded-2xl border-2 border-[#001428]">
-                <h4 className="font-title-16-black text-black-100 mb-4">Color Usage Examples</h4>
+                <h4 className="text-title-16 font-title-16-black text-black-100 mb-4">Color Usage Examples</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div className="p-4 bg-primarysolid-50 rounded-xl border-2 border-[#001428]">
-                    <div className="font-title-16-black text-black-100 mb-2">Primary Action</div>
-                    <div className="text-sm font-text-16-med text-black-60">Main CTA buttons</div>
+                    <div className="text-title-16 font-title-16-black text-black-100 mb-2">Primary Action</div>
+                    <div className="text-text-14-reg font-text-14-reg text-black-60">Main CTA buttons</div>
                   </div>
                   <div className="p-4 bg-secondarysolid-50 rounded-xl border-2 border-[#001428]">
-                    <div className="font-title-16-black text-white-100 mb-2">Secondary Action</div>
-                    <div className="text-sm font-text-16-med text-white-100">Secondary buttons</div>
+                    <div className="text-title-16 font-title-16-black text-white-100 mb-2">Secondary Action</div>
+                    <div className="text-text-14-reg font-text-14-reg text-white-100">Secondary buttons</div>
                   </div>
                   <div className="p-4 bg-success-50 rounded-xl border-2 border-[#001428]">
-                    <div className="font-title-16-black text-white-100 mb-2">Success State</div>
-                    <div className="text-sm font-text-16-med text-white-100">Positive feedback</div>
+                    <div className="text-title-16 font-title-16-black text-white-100 mb-2">Success State</div>
+                    <div className="text-text-14-reg font-text-14-reg text-white-100">Positive feedback</div>
                   </div>
                   <div className="p-4 bg-error-50 rounded-xl border-2 border-[#001428]">
-                    <div className="font-title-16-black text-white-100 mb-2">Error State</div>
-                    <div className="text-sm font-text-16-med text-white-100">Error messages</div>
+                    <div className="text-title-16 font-title-16-black text-white-100 mb-2">Error State</div>
+                    <div className="text-text-14-reg font-text-14-reg text-white-100">Error messages</div>
                   </div>
                 </div>
               </div>
@@ -222,8 +397,8 @@ export const ComponentShowcase = (): JSX.Element => {
           {/* Content Cards Section */}
           <Card className="bg-white-100 border-2 border-[#001428] shadow-[0_6px_0_#001428,0_8px_12px_rgba(0,20,40,0.3)] rounded-2xl">
             <CardHeader>
-              <CardTitle className="font-title-24-black text-black-100">Content Cards</CardTitle>
-              <CardDescription className="font-text-16-med text-black-60">
+              <CardTitle className="text-title-24 font-title-24-black text-black-100">Content Cards</CardTitle>
+              <CardDescription className="text-text-16-reg font-text-16-reg text-black-60">
                 Elevated content cards with images, text, and action buttons using the proper color system
               </CardDescription>
             </CardHeader>
@@ -325,15 +500,15 @@ export const ComponentShowcase = (): JSX.Element => {
           {/* Enhanced Buttons Section */}
           <Card className="bg-white-100 border-2 border-[#001428] shadow-[0_6px_0_#001428,0_8px_12px_rgba(0,20,40,0.3)] rounded-2xl">
             <CardHeader>
-              <CardTitle className="font-title-24-black text-black-100">Enhanced RetroMorphic Buttons</CardTitle>
-              <CardDescription className="font-text-16-med text-black-60">
+              <CardTitle className="text-title-24 font-title-24-black text-black-100">Enhanced RetroMorphic Buttons</CardTitle>
+              <CardDescription className="text-text-16-reg font-text-16-reg text-black-60">
                 Raised buttons with tactile press animations and elevation effects using the proper color system
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-8">
               {/* Button Variants */}
               <div className="space-y-4">
-                <h4 className="font-title-16-black text-black-100">Button Variants</h4>
+                <h4 className="text-title-16 font-title-16-black text-black-100">Button Variants</h4>
                 <div className="flex flex-wrap gap-4">
                   <Button>Primary Button</Button>
                   <Button variant="secondary">Secondary Button</Button>
@@ -347,7 +522,7 @@ export const ComponentShowcase = (): JSX.Element => {
               
               {/* Button Sizes */}
               <div className="space-y-4">
-                <h4 className="font-title-16-black text-black-100">Button Sizes</h4>
+                <h4 className="text-title-16 font-title-16-black text-black-100">Button Sizes</h4>
                 <div className="flex flex-wrap items-center gap-4">
                   <Button size="sm">Small</Button>
                   <Button size="default">Default</Button>
@@ -357,7 +532,7 @@ export const ComponentShowcase = (): JSX.Element => {
 
               {/* Buttons with Icons */}
               <div className="space-y-4">
-                <h4 className="font-title-16-black text-black-100">Buttons with Icons</h4>
+                <h4 className="text-title-16 font-title-16-black text-black-100">Buttons with Icons</h4>
                 <div className="flex flex-wrap gap-4">
                   <Button>
                     <PlayIcon className="w-4 h-4 mr-2" />
@@ -385,9 +560,9 @@ export const ComponentShowcase = (): JSX.Element => {
 
               {/* Interactive Demo */}
               <div className="space-y-4">
-                <h4 className="font-title-16-black text-black-100">Interactive Demo</h4>
+                <h4 className="text-title-16 font-title-16-black text-black-100">Interactive Demo</h4>
                 <div className="p-6 bg-primarysolid-10 rounded-2xl border-2 border-[#001428]">
-                  <p className="font-text-16-med text-black-60 mb-4">
+                  <p className="text-text-16-reg font-text-16-reg text-black-60 mb-4">
                     Click and hold the buttons below to see the press animation in action:
                   </p>
                   <div className="flex flex-wrap gap-4">
@@ -408,15 +583,15 @@ export const ComponentShowcase = (): JSX.Element => {
 
               {/* Color System Demo */}
               <div className="space-y-4">
-                <h4 className="font-title-16-black text-black-100">Color System in Action</h4>
+                <h4 className="text-title-16 font-title-16-black text-black-100">Color System in Action</h4>
                 <div className="p-6 bg-secondarysolid-10 rounded-2xl border-2 border-[#001428]">
-                  <p className="font-text-16-med text-black-60 mb-6">
+                  <p className="text-text-16-reg font-text-16-reg text-black-60 mb-6">
                     See how the proper color system creates consistent, accessible, and visually appealing button designs:
                   </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-4">
-                      <h5 className="font-title-16-black text-black-100">Primary Actions (Yellow)</h5>
+                      <h5 className="text-title-16 font-title-16-black text-black-100">Primary Actions (Yellow)</h5>
                       <div className="space-y-3">
                         <Button className="w-full">Get Started</Button>
                         <Button className="w-full">
@@ -431,7 +606,7 @@ export const ComponentShowcase = (): JSX.Element => {
                     </div>
                     
                     <div className="space-y-4">
-                      <h5 className="font-title-16-black text-black-100">Secondary Actions (Blue)</h5>
+                      <h5 className="text-title-16 font-title-16-black text-black-100">Secondary Actions (Blue)</h5>
                       <div className="space-y-3">
                         <Button variant="secondary" className="w-full">Learn More</Button>
                         <Button variant="secondary" className="w-full">
@@ -447,7 +622,7 @@ export const ComponentShowcase = (): JSX.Element => {
                   </div>
 
                   <div className="mt-6 pt-6 border-t-2 border-[#001428]">
-                    <h5 className="font-title-16-black text-black-100 mb-4">Semantic Actions</h5>
+                    <h5 className="text-title-16 font-title-16-black text-black-100 mb-4">Semantic Actions</h5>
                     <div className="flex flex-wrap gap-3">
                       <Button variant="destructive">
                         <XCircleIcon className="w-4 h-4 mr-2" />
@@ -471,8 +646,8 @@ export const ComponentShowcase = (): JSX.Element => {
           {/* Clean Form Elements */}
           <Card className="bg-white-100 border-2 border-[#001428] shadow-[0_6px_0_#001428,0_8px_12px_rgba(0,20,40,0.3)] rounded-2xl">
             <CardHeader>
-              <CardTitle className="font-title-24-black text-black-100">Clean RetroMorphic Form Fields</CardTitle>
-              <CardDescription className="font-text-16-med text-black-60">
+              <CardTitle className="text-title-24 font-title-24-black text-black-100">Clean RetroMorphic Form Fields</CardTitle>
+              <CardDescription className="text-text-16-reg font-text-16-reg text-black-60">
                 Clean, flat input fields with bold borders and rounded corners - no shadows, just pure retro styling
               </CardDescription>
             </CardHeader>
@@ -480,12 +655,12 @@ export const ComponentShowcase = (): JSX.Element => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="space-y-6">
                   <div>
-                    <label className="block text-sm font-title-16-black text-black-100 mb-3">Basic Text Input</label>
+                    <label className="block text-text-14-med font-text-14-med text-black-100 mb-3">Basic Text Input</label>
                     <Input placeholder="Enter your text..." />
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-title-16-black text-black-100 mb-3">Search Input</label>
+                    <label className="block text-text-14-med font-text-14-med text-black-100 mb-3">Search Input</label>
                     <div className="relative">
                       <SearchIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-black-60 z-10" />
                       <Input placeholder="Search for anything..." className="pl-12" />
@@ -493,7 +668,7 @@ export const ComponentShowcase = (): JSX.Element => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-title-16-black text-black-100 mb-3">Email Input</label>
+                    <label className="block text-text-14-med font-text-14-med text-black-100 mb-3">Email Input</label>
                     <div className="relative">
                       <MailIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-black-60 z-10" />
                       <Input type="email" placeholder="your.email@example.com" className="pl-12" />
@@ -501,7 +676,7 @@ export const ComponentShowcase = (): JSX.Element => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-title-16-black text-black-100 mb-3">Password Input</label>
+                    <label className="block text-text-14-med font-text-14-med text-black-100 mb-3">Password Input</label>
                     <div className="relative">
                       <LockIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-black-60 z-10" />
                       <Input type="password" placeholder="Enter your password" className="pl-12" />
@@ -509,7 +684,7 @@ export const ComponentShowcase = (): JSX.Element => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-title-16-black text-black-100 mb-3">Phone Number</label>
+                    <label className="block text-text-14-med font-text-14-med text-black-100 mb-3">Phone Number</label>
                     <div className="relative">
                       <PhoneIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-black-60 z-10" />
                       <Input type="tel" placeholder="+1 (555) 123-4567" className="pl-12" />
@@ -517,7 +692,7 @@ export const ComponentShowcase = (): JSX.Element => {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-title-16-black text-black-100 mb-3">Select Dropdown</label>
+                    <label className="block text-text-14-med font-text-14-med text-black-100 mb-3">Select Dropdown</label>
                     <Select>
                       <SelectTrigger>
                         <SelectValue placeholder="Choose an option" />
@@ -534,22 +709,22 @@ export const ComponentShowcase = (): JSX.Element => {
 
                 <div className="space-y-6">
                   <div>
-                    <label className="block text-sm font-title-16-black text-black-100 mb-3">Message Textarea</label>
+                    <label className="block text-text-14-med font-text-14-med text-black-100 mb-3">Message Textarea</label>
                     <Textarea placeholder="Enter your message here..." rows={6} />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-title-16-black text-black-100 mb-3">Disabled Input</label>
+                    <label className="block text-text-14-med font-text-14-med text-black-100 mb-3">Disabled Input</label>
                     <Input placeholder="This input is disabled" disabled />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-title-16-black text-black-100 mb-3">Number Input</label>
+                    <label className="block text-text-14-med font-text-14-med text-black-100 mb-3">Number Input</label>
                     <Input type="number" placeholder="Enter a number" min="0" max="100" />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-title-16-black text-black-100 mb-3">Date Input</label>
+                    <label className="block text-text-14-med font-text-14-med text-black-100 mb-3">Date Input</label>
                     <Input type="date" />
                   </div>
                 </div>
@@ -557,8 +732,8 @@ export const ComponentShowcase = (): JSX.Element => {
 
               {/* Clean Design Demo Section */}
               <div className="mt-8 p-6 bg-secondarysolid-10 rounded-2xl border-2 border-[#001428]">
-                <h4 className="font-title-16-black text-black-100 mb-4">Clean Retro Design Demo</h4>
-                <p className="font-text-16-med text-black-60 mb-6">
+                <h4 className="text-title-16 font-title-16-black text-black-100 mb-4">Clean Retro Design Demo</h4>
+                <p className="text-text-16-reg font-text-16-reg text-black-60 mb-6">
                   Experience the clean, flat design approach that emphasizes bold borders and rounded corners. 
                   These fields maintain the retro aesthetic without shadows, creating a crisp, modern feel 
                   that contrasts beautifully with the raised buttons and elevated cards.
@@ -566,8 +741,8 @@ export const ComponentShowcase = (): JSX.Element => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-4">
-                    <h5 className="font-title-16-black text-black-100">Clean Design Features:</h5>
-                    <ul className="space-y-2 text-sm font-text-16-med text-black-60">
+                    <h5 className="text-title-16 font-title-16-black text-black-100">Clean Design Features:</h5>
+                    <ul className="space-y-2 text-text-14-reg font-text-14-reg text-black-60">
                       <li>• No shadows - clean flat appearance</li>
                       <li>• Bold 2px borders for definition</li>
                       <li>• Rounded corners (16px radius)</li>
@@ -578,8 +753,8 @@ export const ComponentShowcase = (): JSX.Element => {
                   </div>
                   
                   <div className="space-y-4">
-                    <h5 className="font-title-16-black text-black-100">Interaction States:</h5>
-                    <ul className="space-y-2 text-sm font-text-16-med text-black-60">
+                    <h5 className="text-title-16 font-title-16-black text-black-100">Interaction States:</h5>
+                    <ul className="space-y-2 text-text-14-reg font-text-14-reg text-black-60">
                       <li>• Default: Clean border and background</li>
                       <li>• Hover: Primary color border highlight</li>
                       <li>• Focus: Primary ring with offset</li>
@@ -592,7 +767,7 @@ export const ComponentShowcase = (): JSX.Element => {
 
                 {/* Live Demo */}
                 <div className="mt-6 p-4 bg-white-100 rounded-xl border border-[#001428]">
-                  <h6 className="font-title-16-black text-black-100 mb-3">Try the Clean Design:</h6>
+                  <h6 className="text-title-16 font-title-16-black text-black-100 mb-3">Try the Clean Design:</h6>
                   <div className="space-y-3">
                     <Input placeholder="Click here to see the clean retro styling..." />
                     <div className="relative">
@@ -608,8 +783,8 @@ export const ComponentShowcase = (): JSX.Element => {
           {/* Interactive Elements */}
           <Card className="bg-white-100 border-2 border-[#001428] shadow-[0_6px_0_#001428,0_8px_12px_rgba(0,20,40,0.3)] rounded-2xl">
             <CardHeader>
-              <CardTitle className="font-title-24-black text-black-100">Interactive Elements</CardTitle>
-              <CardDescription className="font-text-16-med text-black-60">
+              <CardTitle className="text-title-24 font-title-24-black text-black-100">Interactive Elements</CardTitle>
+              <CardDescription className="text-text-16-reg font-text-16-reg text-black-60">
                 Checkboxes, radio buttons, switches, and sliders with retro-morphic styling
               </CardDescription>
             </CardHeader>
@@ -617,41 +792,41 @@ export const ComponentShowcase = (): JSX.Element => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-6">
                   <div className="space-y-3">
-                    <h4 className="font-title-16-black text-black-100">Checkboxes</h4>
+                    <h4 className="text-title-16 font-title-16-black text-black-100">Checkboxes</h4>
                     <div className="space-y-2">
                       <div className="flex items-center space-x-2">
                         <Checkbox id="check1" />
-                        <label htmlFor="check1" className="text-sm font-text-16-med text-black-100">Option 1</label>
+                        <label htmlFor="check1" className="text-text-14-reg font-text-14-reg text-black-100">Option 1</label>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Checkbox id="check2" defaultChecked />
-                        <label htmlFor="check2" className="text-sm font-text-16-med text-black-100">Option 2 (checked)</label>
+                        <label htmlFor="check2" className="text-text-14-reg font-text-14-reg text-black-100">Option 2 (checked)</label>
                       </div>
                     </div>
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="font-title-16-black text-black-100">Radio Group</h4>
+                    <h4 className="text-title-16 font-title-16-black text-black-100">Radio Group</h4>
                     <RadioGroup defaultValue="radio1">
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="radio1" id="radio1" />
-                        <label htmlFor="radio1" className="text-sm font-text-16-med text-black-100">Radio 1</label>
+                        <label htmlFor="radio1" className="text-text-14-reg font-text-14-reg text-black-100">Radio 1</label>
                       </div>
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="radio2" id="radio2" />
-                        <label htmlFor="radio2" className="text-sm font-text-16-med text-black-100">Radio 2</label>
+                        <label htmlFor="radio2" className="text-text-14-reg font-text-14-reg text-black-100">Radio 2</label>
                       </div>
                     </RadioGroup>
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="font-title-16-black text-black-100">Switch</h4>
+                    <h4 className="text-title-16 font-title-16-black text-black-100">Switch</h4>
                     <div className="flex items-center space-x-2">
                       <Switch 
                         checked={switchChecked} 
                         onCheckedChange={setSwitchChecked}
                       />
-                      <label className="text-sm font-text-16-med text-black-100">
+                      <label className="text-text-14-reg font-text-14-reg text-black-100">
                         {switchChecked ? "Enabled" : "Disabled"}
                       </label>
                     </div>
@@ -660,13 +835,13 @@ export const ComponentShowcase = (): JSX.Element => {
 
                 <div className="space-y-6">
                   <div className="space-y-3">
-                    <h4 className="font-title-16-black text-black-100">RetroMorphic Sliders</h4>
+                    <h4 className="text-title-16 font-title-16-black text-black-100">RetroMorphic Sliders</h4>
                     
                     <div className="space-y-4">
                       <div>
                         <div className="flex items-center justify-between mb-2">
-                          <label className="text-sm font-text-16-med text-black-100">Volume</label>
-                          <span className="text-sm font-text-16-med text-black-60">{volumeValue[0]}%</span>
+                          <label className="text-text-14-med font-text-14-med text-black-100">Volume</label>
+                          <span className="text-text-14-reg font-text-14-reg text-black-60">{volumeValue[0]}%</span>
                         </div>
                         <div className="flex items-center space-x-3">
                           <VolumeIcon className="w-4 h-4 text-black-60" />
@@ -683,8 +858,8 @@ export const ComponentShowcase = (): JSX.Element => {
 
                       <div>
                         <div className="flex items-center justify-between mb-2">
-                          <label className="text-sm font-text-16-med text-black-100">Brightness</label>
-                          <span className="text-sm font-text-16-med text-black-60">{brightnessValue[0]}%</span>
+                          <label className="text-text-14-med font-text-14-med text-black-100">Brightness</label>
+                          <span className="text-text-14-reg font-text-14-reg text-black-60">{brightnessValue[0]}%</span>
                         </div>
                         <Slider
                           value={brightnessValue}
@@ -697,8 +872,8 @@ export const ComponentShowcase = (): JSX.Element => {
 
                       <div>
                         <div className="flex items-center justify-between mb-2">
-                          <label className="text-sm font-text-16-med text-black-100">General Setting</label>
-                          <span className="text-sm font-text-16-med text-black-60">{sliderValue[0]}%</span>
+                          <label className="text-text-14-med font-text-14-med text-black-100">General Setting</label>
+                          <span className="text-text-14-reg font-text-14-reg text-black-60">{sliderValue[0]}%</span>
                         </div>
                         <Slider
                           value={sliderValue}
@@ -712,32 +887,32 @@ export const ComponentShowcase = (): JSX.Element => {
                   </div>
 
                   <div className="space-y-3">
-                    <h4 className="font-title-16-black text-black-100">Progress</h4>
+                    <h4 className="text-title-16 font-title-16-black text-black-100">Progress</h4>
                     <Progress value={progressValue} className="w-full" />
-                    <p className="text-sm font-text-16-med text-black-60">Progress: {progressValue}%</p>
+                    <p className="text-text-14-reg font-text-14-reg text-black-60">Progress: {progressValue}%</p>
                   </div>
                 </div>
               </div>
 
               {/* Slider Demo Section */}
               <div className="mt-8 p-6 bg-secondarysolid-10 rounded-2xl border-2 border-[#001428]">
-                <h4 className="font-title-16-black text-black-100 mb-4">Interactive Slider Demo</h4>
-                <p className="font-text-16-med text-black-60 mb-4">
+                <h4 className="text-title-16 font-title-16-black text-black-100 mb-4">Interactive Slider Demo</h4>
+                <p className="text-text-16-reg font-text-16-reg text-black-60 mb-4">
                   Try dragging the sliders above to see the retro-morphic design in action. Notice the elevated track, 
                   gradient fill, and tactile thumb interactions.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                   <div className="p-4 bg-white-100 rounded-xl border border-[#001428]">
-                    <div className="text-2xl font-title-24-black text-primarysolid-60 mb-1">{volumeValue[0]}%</div>
-                    <div className="text-sm font-text-16-med text-black-60">Volume Level</div>
+                    <div className="text-title-24 font-title-24-black text-primarysolid-60 mb-1">{volumeValue[0]}%</div>
+                    <div className="text-text-14-reg font-text-14-reg text-black-60">Volume Level</div>
                   </div>
                   <div className="p-4 bg-white-100 rounded-xl border border-[#001428]">
-                    <div className="text-2xl font-title-24-black text-primarysolid-60 mb-1">{brightnessValue[0]}%</div>
-                    <div className="text-sm font-text-16-med text-black-60">Brightness</div>
+                    <div className="text-title-24 font-title-24-black text-primarysolid-60 mb-1">{brightnessValue[0]}%</div>
+                    <div className="text-text-14-reg font-text-14-reg text-black-60">Brightness</div>
                   </div>
                   <div className="p-4 bg-white-100 rounded-xl border border-[#001428]">
-                    <div className="text-2xl font-title-24-black text-primarysolid-60 mb-1">{sliderValue[0]}%</div>
-                    <div className="text-sm font-text-16-med text-black-60">General</div>
+                    <div className="text-title-24 font-title-24-black text-primarysolid-60 mb-1">{sliderValue[0]}%</div>
+                    <div className="text-text-14-reg font-text-14-reg text-black-60">General</div>
                   </div>
                 </div>
               </div>
@@ -747,15 +922,15 @@ export const ComponentShowcase = (): JSX.Element => {
           {/* Display Elements */}
           <Card className="bg-white-100 border-2 border-[#001428] shadow-[0_6px_0_#001428,0_8px_12px_rgba(0,20,40,0.3)] rounded-2xl">
             <CardHeader>
-              <CardTitle className="font-title-24-black text-black-100">Display Elements</CardTitle>
-              <CardDescription className="font-text-16-med text-black-60">
+              <CardTitle className="text-title-24 font-title-24-black text-black-100">Display Elements</CardTitle>
+              <CardDescription className="text-text-16-reg font-text-16-reg text-black-60">
                 Badges, avatars, and other display components
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
                 <div>
-                  <h4 className="font-title-16-black text-black-100 mb-3">Badges</h4>
+                  <h4 className="text-title-16 font-title-16-black text-black-100 mb-3">Badges</h4>
                   <div className="flex flex-wrap gap-2">
                     <Badge>Default</Badge>
                     <Badge variant="secondary">Secondary</Badge>
@@ -765,7 +940,7 @@ export const ComponentShowcase = (): JSX.Element => {
                 </div>
 
                 <div>
-                  <h4 className="font-title-16-black text-black-100 mb-3">Avatars</h4>
+                  <h4 className="text-title-16 font-title-16-black text-black-100 mb-3">Avatars</h4>
                   <div className="flex gap-4">
                     <Avatar>
                       <AvatarImage src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=1" />
@@ -787,8 +962,8 @@ export const ComponentShowcase = (): JSX.Element => {
           {/* Tabs */}
           <Card className="bg-white-100 border-2 border-[#001428] shadow-[0_6px_0_#001428,0_8px_12px_rgba(0,20,40,0.3)] rounded-2xl">
             <CardHeader>
-              <CardTitle className="font-title-24-black text-black-100">Tabs</CardTitle>
-              <CardDescription className="font-text-16-med text-black-60">
+              <CardTitle className="text-title-24 font-title-24-black text-black-100">Tabs</CardTitle>
+              <CardDescription className="text-text-16-reg font-text-16-reg text-black-60">
                 Tabbed navigation component
               </CardDescription>
             </CardHeader>
@@ -800,13 +975,13 @@ export const ComponentShowcase = (): JSX.Element => {
                   <TabsTrigger value="tab3">Tab 3</TabsTrigger>
                 </TabsList>
                 <TabsContent value="tab1" className="mt-4">
-                  <p className="text-sm font-text-16-med text-black-60">Content for Tab 1. This is where you would put your tab content.</p>
+                  <p className="text-text-14-reg font-text-14-reg text-black-60">Content for Tab 1. This is where you would put your tab content.</p>
                 </TabsContent>
                 <TabsContent value="tab2" className="mt-4">
-                  <p className="text-sm font-text-16-med text-black-60">Content for Tab 2. Each tab can have different content.</p>
+                  <p className="text-text-14-reg font-text-14-reg text-black-60">Content for Tab 2. Each tab can have different content.</p>
                 </TabsContent>
                 <TabsContent value="tab3" className="mt-4">
-                  <p className="text-sm font-text-16-med text-black-60">Content for Tab 3. Tabs are great for organizing information.</p>
+                  <p className="text-text-14-reg font-text-14-reg text-black-60">Content for Tab 3. Tabs are great for organizing information.</p>
                 </TabsContent>
               </Tabs>
             </CardContent>
@@ -815,8 +990,8 @@ export const ComponentShowcase = (): JSX.Element => {
           {/* Alerts */}
           <Card className="bg-white-100 border-2 border-[#001428] shadow-[0_6px_0_#001428,0_8px_12px_rgba(0,20,40,0.3)] rounded-2xl">
             <CardHeader>
-              <CardTitle className="font-title-24-black text-black-100">Alerts</CardTitle>
-              <CardDescription className="font-text-16-med text-black-60">
+              <CardTitle className="text-title-24 font-title-24-black text-black-100">Alerts</CardTitle>
+              <CardDescription className="text-text-16-reg font-text-16-reg text-black-60">
                 Alert messages for different states
               </CardDescription>
             </CardHeader>
@@ -858,8 +1033,8 @@ export const ComponentShowcase = (): JSX.Element => {
           {/* Tooltips */}
           <Card className="bg-white-100 border-2 border-[#001428] shadow-[0_6px_0_#001428,0_8px_12px_rgba(0,20,40,0.3)] rounded-2xl">
             <CardHeader>
-              <CardTitle className="font-title-24-black text-black-100">Tooltips</CardTitle>
-              <CardDescription className="font-text-16-med text-black-60">
+              <CardTitle className="text-title-24 font-title-24-black text-black-100">Tooltips</CardTitle>
+              <CardDescription className="text-text-16-reg font-text-16-reg text-black-60">
                 Hover tooltips for additional information
               </CardDescription>
             </CardHeader>
@@ -901,7 +1076,7 @@ export const ComponentShowcase = (): JSX.Element => {
 
           {/* Footer */}
           <div className="text-center py-8">
-            <p className="text-sm text-black-60 font-text-16-med">
+            <p className="text-text-14-reg font-text-14-reg text-black-60">
               RetroMorphism Design System - Built with React, TypeScript, and Tailwind CSS
             </p>
           </div>

@@ -90,31 +90,158 @@
   --info-80: rgba(21, 94, 117, 1);
   --info-90: rgba(22, 78, 99, 1);
 
-  /* Typography Variables */
-  --text-12-med-font-family: "Inter", Helvetica;
-  --text-12-med-font-size: 12px;
-  --text-12-med-font-style: normal;
-  --text-12-med-font-weight: 500;
-  --text-12-med-letter-spacing: 0px;
-  --text-12-med-line-height: 16px;
-  --text-16-med-font-family: "Inter", Helvetica;
-  --text-16-med-font-size: 16px;
-  --text-16-med-font-style: normal;
-  --text-16-med-font-weight: 500;
-  --text-16-med-letter-spacing: 0px;
-  --text-16-med-line-height: 24px;
-  --title-16-black-font-family: "Inter", Helvetica;
-  --title-16-black-font-size: 16px;
-  --title-16-black-font-style: normal;
-  --title-16-black-font-weight: 900;
-  --title-16-black-letter-spacing: 0px;
-  --title-16-black-line-height: 24px;
+  /* Typography Variables - Based on Figma Design System */
+  
+  /* Display Typography */
+  --display-48-black-font-family: "Inter", Helvetica;
+  --display-48-black-font-size: 48px;
+  --display-48-black-font-style: normal;
+  --display-48-black-font-weight: 900;
+  --display-48-black-letter-spacing: -0.02em;
+  --display-48-black-line-height: 56px;
+
+  --display-40-black-font-family: "Inter", Helvetica;
+  --display-40-black-font-size: 40px;
+  --display-40-black-font-style: normal;
+  --display-40-black-font-weight: 900;
+  --display-40-black-letter-spacing: -0.02em;
+  --display-40-black-line-height: 48px;
+
+  --display-32-black-font-family: "Inter", Helvetica;
+  --display-32-black-font-size: 32px;
+  --display-32-black-font-style: normal;
+  --display-32-black-font-weight: 900;
+  --display-32-black-letter-spacing: -0.01em;
+  --display-32-black-line-height: 40px;
+
+  /* Title Typography */
+  --title-28-black-font-family: "Inter", Helvetica;
+  --title-28-black-font-size: 28px;
+  --title-28-black-font-style: normal;
+  --title-28-black-font-weight: 900;
+  --title-28-black-letter-spacing: -0.01em;
+  --title-28-black-line-height: 36px;
+
   --title-24-black-font-family: "Inter", Helvetica;
   --title-24-black-font-size: 24px;
   --title-24-black-font-style: normal;
   --title-24-black-font-weight: 900;
   --title-24-black-letter-spacing: 0px;
   --title-24-black-line-height: 32px;
+
+  --title-20-black-font-family: "Inter", Helvetica;
+  --title-20-black-font-size: 20px;
+  --title-20-black-font-style: normal;
+  --title-20-black-font-weight: 900;
+  --title-20-black-letter-spacing: 0px;
+  --title-20-black-line-height: 28px;
+
+  --title-18-black-font-family: "Inter", Helvetica;
+  --title-18-black-font-size: 18px;
+  --title-18-black-font-style: normal;
+  --title-18-black-font-weight: 900;
+  --title-18-black-letter-spacing: 0px;
+  --title-18-black-line-height: 26px;
+
+  --title-16-black-font-family: "Inter", Helvetica;
+  --title-16-black-font-size: 16px;
+  --title-16-black-font-style: normal;
+  --title-16-black-font-weight: 900;
+  --title-16-black-letter-spacing: 0px;
+  --title-16-black-line-height: 24px;
+
+  --title-14-black-font-family: "Inter", Helvetica;
+  --title-14-black-font-size: 14px;
+  --title-14-black-font-style: normal;
+  --title-14-black-font-weight: 900;
+  --title-14-black-letter-spacing: 0px;
+  --title-14-black-line-height: 20px;
+
+  /* Body Text Typography */
+  --text-18-reg-font-family: "Inter", Helvetica;
+  --text-18-reg-font-size: 18px;
+  --text-18-reg-font-style: normal;
+  --text-18-reg-font-weight: 400;
+  --text-18-reg-letter-spacing: 0px;
+  --text-18-reg-line-height: 26px;
+
+  --text-18-med-font-family: "Inter", Helvetica;
+  --text-18-med-font-size: 18px;
+  --text-18-med-font-style: normal;
+  --text-18-med-font-weight: 500;
+  --text-18-med-letter-spacing: 0px;
+  --text-18-med-line-height: 26px;
+
+  --text-16-reg-font-family: "Inter", Helvetica;
+  --text-16-reg-font-size: 16px;
+  --text-16-reg-font-style: normal;
+  --text-16-reg-font-weight: 400;
+  --text-16-reg-letter-spacing: 0px;
+  --text-16-reg-line-height: 24px;
+
+  --text-16-med-font-family: "Inter", Helvetica;
+  --text-16-med-font-size: 16px;
+  --text-16-med-font-style: normal;
+  --text-16-med-font-weight: 500;
+  --text-16-med-letter-spacing: 0px;
+  --text-16-med-line-height: 24px;
+
+  --text-14-reg-font-family: "Inter", Helvetica;
+  --text-14-reg-font-size: 14px;
+  --text-14-reg-font-style: normal;
+  --text-14-reg-font-weight: 400;
+  --text-14-reg-letter-spacing: 0px;
+  --text-14-reg-line-height: 20px;
+
+  --text-14-med-font-family: "Inter", Helvetica;
+  --text-14-med-font-size: 14px;
+  --text-14-med-font-style: normal;
+  --text-14-med-font-weight: 500;
+  --text-14-med-letter-spacing: 0px;
+  --text-14-med-line-height: 20px;
+
+  --text-12-reg-font-family: "Inter", Helvetica;
+  --text-12-reg-font-size: 12px;
+  --text-12-reg-font-style: normal;
+  --text-12-reg-font-weight: 400;
+  --text-12-reg-letter-spacing: 0px;
+  --text-12-reg-line-height: 16px;
+
+  --text-12-med-font-family: "Inter", Helvetica;
+  --text-12-med-font-size: 12px;
+  --text-12-med-font-style: normal;
+  --text-12-med-font-weight: 500;
+  --text-12-med-letter-spacing: 0px;
+  --text-12-med-line-height: 16px;
+
+  /* Caption Typography */
+  --caption-11-reg-font-family: "Inter", Helvetica;
+  --caption-11-reg-font-size: 11px;
+  --caption-11-reg-font-style: normal;
+  --caption-11-reg-font-weight: 400;
+  --caption-11-reg-letter-spacing: 0px;
+  --caption-11-reg-line-height: 14px;
+
+  --caption-11-med-font-family: "Inter", Helvetica;
+  --caption-11-med-font-size: 11px;
+  --caption-11-med-font-style: normal;
+  --caption-11-med-font-weight: 500;
+  --caption-11-med-letter-spacing: 0px;
+  --caption-11-med-line-height: 14px;
+
+  --caption-10-reg-font-family: "Inter", Helvetica;
+  --caption-10-reg-font-size: 10px;
+  --caption-10-reg-font-style: normal;
+  --caption-10-reg-font-weight: 400;
+  --caption-10-reg-letter-spacing: 0px;
+  --caption-10-reg-line-height: 12px;
+
+  --caption-10-med-font-family: "Inter", Helvetica;
+  --caption-10-med-font-size: 10px;
+  --caption-10-med-font-style: normal;
+  --caption-10-med-font-weight: 500;
+  --caption-10-med-letter-spacing: 0px;
+  --caption-10-med-line-height: 12px;
 }
 
 @tailwind base;
