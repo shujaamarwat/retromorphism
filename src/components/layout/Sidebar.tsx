@@ -9,10 +9,12 @@ import {
   Link,
   Settings, 
   Menu,
-  X
+  X,
+  LogOut
 } from 'lucide-react';
 import { useStore } from '@/lib/store';
 import { Button } from '@/components/ui/button';
+import { supabase } from '@/lib/supabase';
 
 const navItems = [
   { to: '/dashboard', icon: Home, label: 'Dashboard' },
@@ -25,7 +27,16 @@ const navItems = [
 ];
 
 export const Sidebar: React.FC = () => {
-  const { sidebarOpen, setSidebarOpen } = useStore();
+  const { sidebarOpen, setSidebarOpen, user, setUser } = useStore();
+
+  const handleSignOut = async () => {
+    try {
+      await supabase.auth.signOut();
+      setUser(null);
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
 
   return (
     <>
@@ -57,6 +68,7 @@ export const Sidebar: React.FC = () => {
               size="sm"
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className="p-2 hover:bg-primarysolid-20"
+              title={sidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}
             >
               {sidebarOpen ? <X size={20} /> : <Menu size={20} />}
             </Button>
@@ -64,7 +76,7 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* Navigation */}
-        <nav className="p-4 space-y-2">
+        <nav className="p-4 space-y-2 flex-1">
           {navItems.map(({ to, icon: Icon, label }) => (
             <NavLink
               key={to}
@@ -78,6 +90,7 @@ export const Sidebar: React.FC = () => {
                 }
                 ${!sidebarOpen ? 'justify-center' : ''}
               `}
+              title={!sidebarOpen ? label : undefined}
             >
               <Icon size={20} />
               {sidebarOpen && (
@@ -90,27 +103,55 @@ export const Sidebar: React.FC = () => {
         </nav>
 
         {/* User section */}
-        {sidebarOpen && (
-          <div className="absolute bottom-4 left-4 right-4">
-            <div className="p-3 bg-secondarysolid-10 rounded-xl border-2 border-black-100">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-primarysolid-50 rounded-full flex items-center justify-center">
-                  <span className="text-text-12-med font-text-12-med text-black-100">
-                    U
-                  </span>
-                </div>
-                <div>
-                  <p className="text-text-14-med font-text-14-med text-black-100">
-                    User
-                  </p>
-                  <p className="text-caption-11-reg font-caption-11-reg text-black-60">
-                    Level 1
-                  </p>
+        <div className="p-4 border-t-2 border-black-100">
+          {sidebarOpen ? (
+            <div className="space-y-3">
+              <div className="p-3 bg-secondarysolid-10 rounded-xl border-2 border-black-100">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-primarysolid-50 rounded-full flex items-center justify-center">
+                    <span className="text-text-12-med font-text-12-med text-black-100">
+                      {user?.display_name?.[0] || 'U'}
+                    </span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-text-14-med font-text-14-med text-black-100 truncate">
+                      {user?.display_name || 'User'}
+                    </p>
+                    <p className="text-caption-11-reg font-caption-11-reg text-black-60">
+                      Level {user?.level || 1}
+                    </p>
+                  </div>
                 </div>
               </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleSignOut}
+                className="w-full gap-2"
+              >
+                <LogOut size={16} />
+                Sign Out
+              </Button>
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="space-y-2">
+              <div className="w-8 h-8 bg-primarysolid-50 rounded-full flex items-center justify-center mx-auto">
+                <span className="text-text-12-med font-text-12-med text-black-100">
+                  {user?.display_name?.[0] || 'U'}
+                </span>
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleSignOut}
+                className="p-2 w-full"
+                title="Sign Out"
+              >
+                <LogOut size={16} />
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
