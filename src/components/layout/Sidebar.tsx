@@ -5,6 +5,7 @@ import {
   Target, 
   Zap, 
   Trophy, 
+  BarChart3,
   Settings, 
   Menu,
   X
@@ -17,6 +18,7 @@ const navItems = [
   { to: '/quests', icon: Target, label: 'Quests' },
   { to: '/virtuas', icon: Zap, label: 'Virtuas' },
   { to: '/achievements', icon: Trophy, label: 'Achievements' },
+  { to: '/analytics', icon: BarChart3, label: 'Analytics' },
   { to: '/settings', icon: Settings, label: 'Settings' },
 ];
 

@@ -6,6 +6,7 @@ import { Quests } from '@/pages/Quests';
 import { QuestDetail } from '@/pages/QuestDetail';
 import { Virtuas } from '@/pages/Virtuas';
 import { Achievements } from '@/pages/Achievements';
+import { Analytics } from '@/pages/Analytics';
 import { Login } from '@/pages/Login';
 import { useStore } from '@/lib/store';
 import { supabase } from '@/lib/supabase';
@@ -71,12 +72,13 @@ function App() {
           <Route path="quest/:id" element={<QuestDetail />} />
           <Route path="virtuas" element={<Virtuas />} />
           <Route path="achievements" element={<Achievements />} />
+          <Route path="analytics" element={<Analytics />} />
           <Route path="settings" element={<div>Settings (Coming Soon)</div>} />
         </Route>
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
