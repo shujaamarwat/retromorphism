@@ -11,6 +11,7 @@ import { HabitChains } from '@/pages/HabitChains';
 import { Tasks } from '@/pages/Tasks';
 import { Settings } from '@/pages/Settings';
 import { Login } from '@/pages/Login';
+import { Landing } from '@/pages/Landing';
 import { LevelUpModal } from '@/components/gamification/LevelUpModal';
 import { AchievementToast } from '@/components/gamification/AchievementToast';
 import { useStore } from '@/lib/store';
@@ -70,48 +71,52 @@ function App() {
     setAchievement(achievementData);
   };
 
-  if (!user) {
-    return (
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="*" element={<Navigate to="/login" replace />} />
-        </Routes>
-      </Router>
-    );
-  }
-
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<AppLayout />}>
-          <Route index element={<Navigate to="/dashboard" replace />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="tasks" element={<Tasks />} />
-          <Route path="quests" element={<Quests />} />
-          <Route path="quest/:id" element={<QuestDetail />} />
-          <Route path="virtuas" element={<Virtuas />} />
-          <Route path="achievements" element={<Achievements />} />
-          <Route path="analytics" element={<Analytics />} />
-          <Route path="chains" element={<HabitChains />} />
-          <Route path="settings" element={<Settings />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        {/* Public routes */}
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        
+        {/* Protected routes */}
+        {user ? (
+          <Route path="/app" element={<AppLayout />}>
+            <Route index element={<Navigate to="/app/dashboard" replace />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="tasks" element={<Tasks />} />
+            <Route path="quests" element={<Quests />} />
+            <Route path="quest/:id" element={<QuestDetail />} />
+            <Route path="virtuas" element={<Virtuas />} />
+            <Route path="achievements" element={<Achievements />} />
+            <Route path="analytics" element={<Analytics />} />
+            <Route path="chains" element={<HabitChains />} />
+            <Route path="settings" element={<Settings />} />
+          </Route>
+        ) : (
+          <Route path="/app/*" element={<Navigate to="/login" replace />} />
+        )}
+        
+        {/* Fallback */}
+        <Route path="*" element={<Navigate to={user ? "/app/dashboard" : "/"} replace />} />
       </Routes>
 
       {/* Gamification Modals */}
-      <LevelUpModal
-        isOpen={showLevelUp}
-        onClose={() => setShowLevelUp(false)}
-        newLevel={levelUpData.newLevel}
-        xpGained={levelUpData.xpGained}
-        rewards={['New Virtua customization options', 'Bonus XP multiplier for 24 hours']}
-      />
+      {user && (
+        <>
+          <LevelUpModal
+            isOpen={showLevelUp}
+            onClose={() => setShowLevelUp(false)}
+            newLevel={levelUpData.newLevel}
+            xpGained={levelUpData.xpGained}
+            rewards={['New Virtua customization options', 'Bonus XP multiplier for 24 hours']}
+          />
 
-      <AchievementToast
-        achievement={achievement}
-        onClose={() => setAchievement(null)}
-      />
+          <AchievementToast
+            achievement={achievement}
+            onClose={() => setAchievement(null)}
+          />
+        </>
+      )}
     </Router>
   );
 };
