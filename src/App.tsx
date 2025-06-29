@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AppLayout } from '@/components/layout/AppLayout';
 import { Dashboard } from '@/pages/Dashboard';
+import { Quests } from '@/pages/Quests';
+import { QuestDetail } from '@/pages/QuestDetail';
 import { Login } from '@/pages/Login';
 import { useStore } from '@/lib/store';
 import { supabase } from '@/lib/supabase';
@@ -63,7 +65,8 @@ function App() {
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Navigate to="/dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="quests" element={<div>Quests (Coming Soon)</div>} />
+          <Route path="quests" element={<Quests />} />
+          <Route path="quest/:id" element={<QuestDetail />} />
           <Route path="virtuas" element={<div>Virtuas (Coming Soon)</div>} />
           <Route path="achievements" element={<div>Achievements (Coming Soon)</div>} />
           <Route path="settings" element={<div>Settings (Coming Soon)</div>} />
