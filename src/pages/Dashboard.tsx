@@ -3,11 +3,13 @@ import { VirtuaCard } from '@/components/virtua/VirtuaCard';
 import { TaskCard } from '@/components/task/TaskCard';
 import { XPDisplay } from '@/components/gamification/XPDisplay';
 import { StreakDisplay } from '@/components/gamification/StreakDisplay';
+import { QuickActions } from '@/components/dashboard/QuickActions';
+import { RecentActivity } from '@/components/dashboard/RecentActivity';
 import { Button } from '@/components/ui/button';
-import { Plus, TrendingUp, Target, Zap, ArrowRight } from 'lucide-react';
+import { Plus, TrendingUp, Target, Zap, ArrowRight, Calendar } from 'lucide-react';
 import { useStore } from '@/lib/store';
 import { supabase, Task, Virtua } from '@/lib/supabase';
-import { format, startOfDay, endOfDay, isToday } from 'date-fns';
+import { format, startOfDay, endOfDay, isToday, addDays } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 
 export const Dashboard: React.FC = () => {
@@ -64,8 +66,7 @@ export const Dashboard: React.FC = () => {
         .limit(5);
 
       // Load upcoming tasks (next 7 days, excluding today)
-      const nextWeek = new Date();
-      nextWeek.setDate(nextWeek.getDate() + 7);
+      const nextWeek = addDays(today, 7);
       const { data: upcomingTasksData } = await supabase
         .from('tasks')
         .select('*')
@@ -156,7 +157,8 @@ export const Dashboard: React.FC = () => {
           <h1 className="text-display-32 font-display-32-black text-black-100">
             Welcome back, {user?.display_name || 'Adventurer'}!
           </h1>
-          <p className="text-text-16-reg font-text-16-reg text-black-60 mt-1">
+          <p className="text-text-16-reg font-text-16-reg text-black-60 mt-1 flex items-center gap-2">
+            <Calendar size={16} />
             {format(new Date(), 'EEEE, MMMM d, yyyy')}
           </p>
         </div>
@@ -214,48 +216,54 @@ export const Dashboard: React.FC = () => {
 
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Today's Tasks */}
-        <div className="lg:col-span-2">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-title-20 font-title-20-black text-black-100">
-              Today's Focus
-            </h2>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={() => navigate('/tasks')}
-              className="gap-2"
-            >
-              View All
-              <ArrowRight size={14} />
-            </Button>
-          </div>
-          
-          {todayTasks.length === 0 ? (
-            <div className="text-center py-8 bg-white-100 rounded-2xl border-2 border-black-100">
-              <p className="text-text-16-reg font-text-16-reg text-black-60 mb-4">
-                No tasks scheduled for today. Great job staying on top of things!
-              </p>
-              <Button className="gap-2" onClick={() => navigate('/tasks')}>
-                <Plus size={16} />
-                Add Task
+        {/* Left Column - Tasks */}
+        <div className="lg:col-span-2 space-y-6">
+          {/* Today's Tasks */}
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-title-20 font-title-20-black text-black-100">
+                Today's Focus
+              </h2>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={() => navigate('/tasks')}
+                className="gap-2"
+              >
+                View All
+                <ArrowRight size={14} />
               </Button>
             </div>
-          ) : (
-            <div className="space-y-3">
-              {todayTasks.map((task) => (
-                <TaskCard
-                  key={task.id}
-                  task={task}
-                  onToggleComplete={handleToggleTaskComplete}
-                />
-              ))}
-            </div>
-          )}
+            
+            {todayTasks.length === 0 ? (
+              <div className="text-center py-8 bg-white-100 rounded-2xl border-2 border-black-100">
+                <div className="w-12 h-12 bg-success-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Target className="text-success-60" size={20} />
+                </div>
+                <p className="text-text-16-reg font-text-16-reg text-black-60 mb-4">
+                  No tasks scheduled for today. Great job staying on top of things!
+                </p>
+                <Button className="gap-2" onClick={() => navigate('/tasks')}>
+                  <Plus size={16} />
+                  Add Task
+                </Button>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {todayTasks.map((task) => (
+                  <TaskCard
+                    key={task.id}
+                    task={task}
+                    onToggleComplete={handleToggleTaskComplete}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* Upcoming Tasks */}
           {upcomingTasks.length > 0 && (
-            <div className="mt-8">
+            <div>
               <h3 className="text-title-16 font-title-16-black text-black-100 mb-4">
                 Coming Up This Week
               </h3>
@@ -263,7 +271,8 @@ export const Dashboard: React.FC = () => {
                 {upcomingTasks.map((task) => (
                   <div
                     key={task.id}
-                    className="p-3 bg-white-100 rounded-xl border border-black-100 hover:bg-primarysolid-10 transition-colors"
+                    className="p-3 bg-white-100 rounded-xl border border-black-100 hover:bg-primarysolid-10 transition-colors cursor-pointer"
+                    onClick={() => navigate('/tasks')}
                   >
                     <div className="flex items-center justify-between">
                       <div>
@@ -290,53 +299,62 @@ export const Dashboard: React.FC = () => {
           )}
         </div>
 
-        {/* Virtuas Section */}
-        <div>
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-title-20 font-title-20-black text-black-100">
-              Your Virtuas
-            </h2>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={() => navigate('/virtuas')}
-              className="gap-2"
-            >
-              View All
-              <ArrowRight size={14} />
-            </Button>
-          </div>
-          
-          {virtuas.length === 0 ? (
-            <div className="text-center py-8 bg-white-100 rounded-2xl border-2 border-black-100">
-              <div className="w-12 h-12 bg-secondarysolid-20 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Zap className="text-secondarysolid-60" size={20} />
-              </div>
-              <p className="text-text-14-reg font-text-14-reg text-black-60 mb-4">
-                Create your first Virtua to start your journey!
-              </p>
+        {/* Right Column - Sidebar */}
+        <div className="space-y-6">
+          {/* Quick Actions */}
+          <QuickActions />
+
+          {/* Virtuas Section */}
+          <div>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-title-16 font-title-16-black text-black-100">
+                Your Virtuas
+              </h2>
               <Button 
+                variant="outline" 
                 size="sm" 
                 onClick={() => navigate('/virtuas')}
                 className="gap-2"
               >
-                <Plus size={14} />
-                Create Virtua
+                View All
+                <ArrowRight size={14} />
               </Button>
             </div>
-          ) : (
-            <div className="space-y-4">
-              {virtuas.slice(0, 3).map((virtua) => (
-                <VirtuaCard
-                  key={virtua.id}
-                  virtua={virtua}
-                  isSelected={selectedVirtua?.id === virtua.id}
-                  onClick={() => setSelectedVirtua(virtua)}
-                  showProgress={true}
-                />
-              ))}
-            </div>
-          )}
+            
+            {virtuas.length === 0 ? (
+              <div className="text-center py-6 bg-white-100 rounded-2xl border-2 border-black-100">
+                <div className="w-12 h-12 bg-secondarysolid-20 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Zap className="text-secondarysolid-60" size={20} />
+                </div>
+                <p className="text-text-14-reg font-text-14-reg text-black-60 mb-4">
+                  Create your first Virtua to start your journey!
+                </p>
+                <Button 
+                  size="sm" 
+                  onClick={() => navigate('/virtuas')}
+                  className="gap-2"
+                >
+                  <Plus size={14} />
+                  Create Virtua
+                </Button>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {virtuas.slice(0, 2).map((virtua) => (
+                  <VirtuaCard
+                    key={virtua.id}
+                    virtua={virtua}
+                    isSelected={selectedVirtua?.id === virtua.id}
+                    onClick={() => setSelectedVirtua(virtua)}
+                    showProgress={true}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Recent Activity */}
+          <RecentActivity />
         </div>
       </div>
     </div>

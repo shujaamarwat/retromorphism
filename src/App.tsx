@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AppLayout } from '@/components/layout/AppLayout';
 import { Dashboard } from '@/pages/Dashboard';
@@ -9,12 +9,18 @@ import { Achievements } from '@/pages/Achievements';
 import { Analytics } from '@/pages/Analytics';
 import { HabitChains } from '@/pages/HabitChains';
 import { Tasks } from '@/pages/Tasks';
+import { Settings } from '@/pages/Settings';
 import { Login } from '@/pages/Login';
+import { LevelUpModal } from '@/components/gamification/LevelUpModal';
+import { AchievementToast } from '@/components/gamification/AchievementToast';
 import { useStore } from '@/lib/store';
 import { supabase } from '@/lib/supabase';
 
 function App() {
   const { user, setUser } = useStore();
+  const [showLevelUp, setShowLevelUp] = useState(false);
+  const [levelUpData, setLevelUpData] = useState({ newLevel: 1, xpGained: 0 });
+  const [achievement, setAchievement] = useState(null);
 
   useEffect(() => {
     // Check for existing session
@@ -53,6 +59,17 @@ function App() {
     }
   };
 
+  // Mock function to trigger level up (would be called when XP increases)
+  const triggerLevelUp = (newLevel: number, xpGained: number) => {
+    setLevelUpData({ newLevel, xpGained });
+    setShowLevelUp(true);
+  };
+
+  // Mock function to trigger achievement (would be called when conditions are met)
+  const triggerAchievement = (achievementData: any) => {
+    setAchievement(achievementData);
+  };
+
   if (!user) {
     return (
       <Router>
@@ -70,17 +87,31 @@ function App() {
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Navigate to="/dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="tasks" element={<Tasks />} />
           <Route path="quests" element={<Quests />} />
           <Route path="quest/:id" element={<QuestDetail />} />
           <Route path="virtuas" element={<Virtuas />} />
           <Route path="achievements" element={<Achievements />} />
           <Route path="analytics" element={<Analytics />} />
           <Route path="chains" element={<HabitChains />} />
-          <Route path="tasks" element={<Tasks />} />
-          <Route path="settings" element={<div>Settings (Coming Soon)</div>} />
+          <Route path="settings" element={<Settings />} />
         </Route>
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
+
+      {/* Gamification Modals */}
+      <LevelUpModal
+        isOpen={showLevelUp}
+        onClose={() => setShowLevelUp(false)}
+        newLevel={levelUpData.newLevel}
+        xpGained={levelUpData.xpGained}
+        rewards={['New Virtua customization options', 'Bonus XP multiplier for 24 hours']}
+      />
+
+      <AchievementToast
+        achievement={achievement}
+        onClose={() => setAchievement(null)}
+      />
     </Router>
   );
 };
