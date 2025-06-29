@@ -7,6 +7,7 @@ import { QuestDetail } from '@/pages/QuestDetail';
 import { Virtuas } from '@/pages/Virtuas';
 import { Achievements } from '@/pages/Achievements';
 import { Analytics } from '@/pages/Analytics';
+import { HabitChains } from '@/pages/HabitChains';
 import { Login } from '@/pages/Login';
 import { useStore } from '@/lib/store';
 import { supabase } from '@/lib/supabase';
@@ -73,6 +74,7 @@ function App() {
           <Route path="virtuas" element={<Virtuas />} />
           <Route path="achievements" element={<Achievements />} />
           <Route path="analytics" element={<Analytics />} />
+          <Route path="chains" element={<HabitChains />} />
           <Route path="settings" element={<div>Settings (Coming Soon)</div>} />
         </Route>
         <Route path="*" element={<Navigate to="/dashboard" replace />} />

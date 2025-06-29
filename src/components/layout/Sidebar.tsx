@@ -6,6 +6,7 @@ import {
   Zap, 
   Trophy, 
   BarChart3,
+  Link,
   Settings, 
   Menu,
   X
@@ -16,6 +17,7 @@ import { Button } from '@/components/ui/button';
 const navItems = [
   { to: '/dashboard', icon: Home, label: 'Dashboard' },
   { to: '/quests', icon: Target, label: 'Quests' },
+  { to: '/chains', icon: Link, label: 'Habit Chains' },
   { to: '/virtuas', icon: Zap, label: 'Virtuas' },
   { to: '/achievements', icon: Trophy, label: 'Achievements' },
   { to: '/analytics', icon: BarChart3, label: 'Analytics' },
