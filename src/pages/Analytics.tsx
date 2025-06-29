@@ -6,6 +6,8 @@ import { HeatmapCalendar } from '@/components/analytics/HeatmapCalendar';
 import { ProductivityInsights } from '@/components/analytics/ProductivityInsights';
 import { VirtuaProgressChart } from '@/components/analytics/VirtuaProgressChart';
 import { TaskCompletionStats } from '@/components/analytics/TaskCompletionStats';
+import { AdvancedInsights } from '@/components/analytics/AdvancedInsights';
+import { MilestoneTracker } from '@/components/gamification/MilestoneTracker';
 import { useStore } from '@/lib/store';
 import { supabase } from '@/lib/supabase';
 import { subDays, format, startOfWeek, endOfWeek, startOfMonth, endOfMonth } from 'date-fns';
@@ -25,6 +27,15 @@ interface AnalyticsData {
     averageTasksPerDay: number;
     completionRate: number;
   };
+  advancedInsights: {
+    productivityScore: number;
+    focusTime: number;
+    peakHours: string[];
+    completionTrend: number;
+    weeklyGoalProgress: number;
+    burnoutRisk: 'low' | 'medium' | 'high';
+    recommendations: string[];
+  };
 }
 
 export const Analytics: React.FC = () => {
@@ -32,6 +43,50 @@ export const Analytics: React.FC = () => {
   const [analyticsData, setAnalyticsData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [timeRange, setTimeRange] = useState<'week' | 'month' | 'quarter'>('month');
+
+  // Mock milestones data
+  const milestones = [
+    {
+      id: '1',
+      title: 'Task Master',
+      description: 'Complete 100 tasks',
+      target: 100,
+      current: 67,
+      type: 'tasks' as const,
+      reward: 'Special Badge',
+      completed: false
+    },
+    {
+      id: '2',
+      title: 'XP Collector',
+      description: 'Earn 5,000 XP',
+      target: 5000,
+      current: 3250,
+      type: 'xp' as const,
+      reward: 'Bonus Multiplier',
+      completed: false
+    },
+    {
+      id: '3',
+      title: 'Consistency King',
+      description: 'Maintain 30-day streak',
+      target: 30,
+      current: 18,
+      type: 'streak' as const,
+      reward: 'Golden Crown',
+      completed: false
+    },
+    {
+      id: '4',
+      title: 'Level Legend',
+      description: 'Reach Level 10',
+      target: 10,
+      current: 10,
+      type: 'level' as const,
+      reward: 'Legendary Title',
+      completed: true
+    }
+  ];
 
   useEffect(() => {
     loadAnalyticsData();
@@ -94,6 +149,9 @@ export const Analytics: React.FC = () => {
       // Productivity insights
       const productivityInsights = calculateProductivityInsights(tasks || [], streakLogs || []);
 
+      // Advanced insights
+      const advancedInsights = calculateAdvancedInsights(tasks || [], streakLogs || []);
+
       setAnalyticsData({
         totalTasks,
         completedTasks: completedTasks.length,
@@ -103,7 +161,8 @@ export const Analytics: React.FC = () => {
         monthlyProgress,
         virtuaProgress,
         heatmapData,
-        productivityInsights
+        productivityInsights,
+        advancedInsights
       });
 
     } catch (error) {
@@ -117,8 +176,6 @@ export const Analytics: React.FC = () => {
     if (streakLogs.length === 0) return 0;
     
     let streak = 0;
-    const today = new Date().toISOString().split('T')[0];
-    
     for (let i = streakLogs.length - 1; i >= 0; i--) {
       const log = streakLogs[i];
       if (log.streak_maintained) {
@@ -220,6 +277,46 @@ export const Analytics: React.FC = () => {
     };
   };
 
+  const calculateAdvancedInsights = (tasks: any[], streakLogs: any[]) => {
+    const completedTasks = tasks.filter(t => t.completed);
+    const completionRate = tasks.length > 0 ? (completedTasks.length / tasks.length) * 100 : 0;
+    
+    // Calculate productivity score based on multiple factors
+    const consistencyScore = streakLogs.length > 0 ? Math.min(streakLogs.length * 5, 40) : 0;
+    const completionScore = Math.min(completionRate, 40);
+    const volumeScore = Math.min(completedTasks.length * 2, 20);
+    const productivityScore = Math.round(consistencyScore + completionScore + volumeScore);
+
+    // Mock advanced calculations
+    const focusTime = 4.5 + Math.random() * 2; // 4.5-6.5 hours
+    const peakHours = ['9:00 AM', '2:00 PM', '7:00 PM'];
+    const completionTrend = 15; // +15% from last period
+    const weeklyGoalProgress = 78;
+    
+    // Determine burnout risk
+    let burnoutRisk: 'low' | 'medium' | 'high' = 'low';
+    if (focusTime > 8) burnoutRisk = 'high';
+    else if (focusTime > 6) burnoutRisk = 'medium';
+
+    // Generate recommendations
+    const recommendations = [
+      'Schedule demanding tasks during your peak hours (9 AM, 2 PM)',
+      'Take regular breaks to maintain focus and prevent burnout',
+      'Consider batching similar tasks to improve efficiency',
+      'Your Monday productivity is excellent - replicate this pattern'
+    ];
+
+    return {
+      productivityScore,
+      focusTime,
+      peakHours,
+      completionTrend,
+      weeklyGoalProgress,
+      burnoutRisk,
+      recommendations
+    };
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -252,7 +349,7 @@ export const Analytics: React.FC = () => {
             Analytics
           </h1>
           <p className="text-text-16-reg font-text-16-reg text-black-60 mt-1">
-            Track your progress and discover productivity patterns
+            Deep insights into your productivity patterns and progress
           </p>
         </div>
         
@@ -338,6 +435,12 @@ export const Analytics: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Advanced Insights */}
+      <AdvancedInsights data={analyticsData.advancedInsights} />
+
+      {/* Milestone Tracker */}
+      <MilestoneTracker milestones={milestones} />
 
       {/* Charts Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
