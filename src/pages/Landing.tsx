@@ -169,14 +169,6 @@ export const Landing: React.FC = () => {
                   <Play size={20} />
                   Start Your Adventure
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg"
-                  className="gap-3 text-text-18-med font-text-18-med px-8 py-4"
-                >
-                  <Play size={20} />
-                  Watch Demo
-                </Button>
               </div>
 
               <div className="flex items-center gap-8">
