@@ -9,12 +9,14 @@ export const Login: React.FC = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const { setUser } = useStore();
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError('');
 
     try {
       if (isSignUp) {
@@ -56,6 +58,9 @@ export const Login: React.FC = () => {
               evolution_stage: 1,
             });
           }
+
+          setError('Account created successfully! You can now sign in.');
+          setIsSignUp(false);
         }
       } else {
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -63,12 +68,19 @@ export const Login: React.FC = () => {
           password,
         });
 
-        if (error) throw error;
-      }
+        if (error) {
+          if (error.message.includes('Invalid login credentials')) {
+            throw new Error('Invalid email or password. Please check your credentials and try again.');
+          }
+          throw error;
+        }
 
-      navigate('/dashboard');
+        if (data.user) {
+          navigate('/dashboard');
+        }
+      }
     } catch (error: any) {
-      alert(error.message);
+      setError(error.message);
     } finally {
       setLoading(false);
     }
@@ -87,6 +99,13 @@ export const Login: React.FC = () => {
               Transform your goals into epic quests
             </p>
           </div>
+
+          {/* Error Message */}
+          {error && (
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+              <p className="text-sm text-red-600">{error}</p>
+            </div>
+          )}
 
           {/* Form */}
           <form onSubmit={handleAuth} className="space-y-4">
@@ -115,6 +134,7 @@ export const Login: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                minLength={6}
                 className="w-full px-4 py-3 bg-primarysolid-10 border-2 border-black-100 rounded-xl 
                          text-text-16-reg font-text-16-reg text-black-100 placeholder-black-60
                          focus:outline-none focus:ring-2 focus:ring-primarysolid-50 focus:border-primarysolid-50"
@@ -135,7 +155,10 @@ export const Login: React.FC = () => {
           <div className="text-center mt-6">
             <button
               type="button"
-              onClick={() => setIsSignUp(!isSignUp)}
+              onClick={() => {
+                setIsSignUp(!isSignUp);
+                setError('');
+              }}
               className="text-text-14-reg font-text-14-reg text-secondarysolid-60 hover:text-secondarysolid-70"
             >
               {isSignUp 
