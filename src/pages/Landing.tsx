@@ -621,7 +621,7 @@ export const Landing: React.FC = () => {
 
           <div className="border-t border-white-100 border-opacity-20 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between">
             <p className="text-caption-11-reg font-caption-11-reg opacity-60">
-              © 2024 MindForge. All rights reserved.
+              © 2025 MindForge. All rights reserved. Created by Alak Studios
             </p>
             <div className="flex items-center gap-4 mt-4 md:mt-0">
               <div className="flex items-center gap-2">
