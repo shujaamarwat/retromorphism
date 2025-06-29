@@ -28,39 +28,10 @@ export const Login: React.FC = () => {
         if (error) throw error;
 
         if (data.user) {
-          // Create user profile
-          const { error: profileError } = await supabase
-            .from('users')
-            .insert({
-              id: data.user.id,
-              display_name: email.split('@')[0],
-              total_xp: 0,
-              level: 1,
-              streak_count: 0,
-            });
-
-          if (profileError) throw profileError;
-
-          // Create default virtuas
-          const defaultVirtuas = [
-            { name: 'Focus Spirit', domain: 'Focus' },
-            { name: 'Fitness Guardian', domain: 'Fitness' },
-            { name: 'Learning Sage', domain: 'Learning' },
-          ];
-
-          for (const virtua of defaultVirtuas) {
-            await supabase.from('virtuas').insert({
-              user_id: data.user.id,
-              name: virtua.name,
-              domain: virtua.domain,
-              level: 1,
-              xp: 0,
-              evolution_stage: 1,
-            });
-          }
-
-          setError('Account created successfully! You can now sign in.');
+          setError('Account created successfully! Please sign in to continue.');
           setIsSignUp(false);
+          setEmail('');
+          setPassword('');
         }
       } else {
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -76,6 +47,54 @@ export const Login: React.FC = () => {
         }
 
         if (data.user) {
+          // Check if user profile exists
+          const { data: existingProfile } = await supabase
+            .from('users')
+            .select('id')
+            .eq('id', data.user.id)
+            .single();
+
+          // If no profile exists, create one
+          if (!existingProfile) {
+            const { error: profileError } = await supabase
+              .from('users')
+              .insert({
+                id: data.user.id,
+                display_name: email.split('@')[0],
+                total_xp: 0,
+                level: 1,
+                streak_count: 0,
+              });
+
+            if (profileError) {
+              console.error('Profile creation error:', profileError);
+              // Don't throw here, as the user is already signed in
+            }
+
+            // Create default virtuas
+            const defaultVirtuas = [
+              { name: 'Focus Spirit', domain: 'Focus' },
+              { name: 'Fitness Guardian', domain: 'Fitness' },
+              { name: 'Learning Sage', domain: 'Learning' },
+            ];
+
+            for (const virtua of defaultVirtuas) {
+              const { error: virtuaError } = await supabase.from('virtuas').insert({
+                user_id: data.user.id,
+                name: virtua.name,
+                domain: virtua.domain,
+                level: 1,
+                xp: 0,
+                evolution_stage: 1,
+              });
+
+              if (virtuaError) {
+                console.error('Virtua creation error:', virtuaError);
+                // Don't throw here, continue with other virtuas
+              }
+            }
+          }
+
           navigate('/dashboard');
         }
       }
@@ -102,8 +121,16 @@ export const Login: React.FC = () => {
 
           {/* Error Message */}
           {error && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-sm text-red-600">{error}</p>
+            <div className={`mb-4 p-3 rounded-lg ${
+              error.includes('successfully') 
+                ? 'bg-green-50 border border-green-200' 
+                : 'bg-red-50 border border-red-200'
+            }`}>
+              <p className={`text-sm ${
+                error.includes('successfully') ? 'text-green-600' : 'text-red-600'
+              }`}>
+                {error}
+              </p>
             </div>
           )}
 
