@@ -1,35 +1,136 @@
-# RetroMorphism Design System
+# MindForge - Gamified Productivity Tracker
 
-A comprehensive React component library featuring retro-styled UI components with bold shadows, vibrant colors, and tactile interactions. Built with React, TypeScript, Tailwind CSS, and Radix UI primitives.
+A comprehensive gamified productivity application that transforms real-life goals into RPG-style quests. Built with React, TypeScript, Tailwind CSS, and Supabase.
 
 ## 🚀 Live Demo
 
-**[View Live Demo →](https://chic-axolotl-368ff4.netlify.app/)**
+**[View Live Demo →](https://dancing-bombolone-5fccb4.netlify.app/)**
 
 ## ✨ Features
 
-### Design Philosophy
-- **RetroMorphic Aesthetics**: Elevated components with bold shadows and tactile interactions
-- **Comprehensive Color System**: 6 complete color ramps (Primary, Secondary, Success, Warning, Error, Info) with neutral tones
+### Core Functionality
+- **Epic Quests**: Transform your goals into engaging RPG-style adventures with clear objectives and rewards
+- **Digital Companions (Virtuas)**: Train AI-powered companions that grow stronger as you complete tasks and build habits
+- **Achievement System**: Collect rare runes and unlock achievements as you master productivity milestones
+- **Habit Chains**: Build powerful habits through connected sequences of actions
+- **Smart Analytics**: Get insights into your productivity patterns with comprehensive analytics and heatmaps
+- **Task Management**: Advanced task system with dependencies, priorities, and smart scheduling
+
+### Gamification Elements
+- **XP & Leveling System**: Earn experience points and level up your profile and Virtuas
+- **Streak Tracking**: Maintain daily streaks to build consistency
+- **Rune Collection**: Unlock achievements with different rarity levels (Common, Rare, Epic, Legendary)
+- **Progress Visualization**: Beautiful charts and progress rings to track your journey
+- **Milestone Tracking**: Set and achieve long-term goals with visual progress indicators
+
+### User Experience
+- **Responsive Design**: Mobile-first approach with thoughtful breakpoints
+- **RetroMorphic Aesthetics**: Bold shadows, vibrant colors, and tactile interactions
+- **Comprehensive Color System**: 6 complete color ramps with neutral tones
 - **Typography Scale**: Complete typography system from display (48px) to caption (10px) sizes
 - **Accessibility First**: WCAG compliant with proper contrast ratios and semantic HTML
-- **Responsive Design**: Mobile-first approach with thoughtful breakpoints
 
-### Component Library
-- **Enhanced Buttons**: Multiple variants, sizes, and icon combinations with press animations
-- **Content Cards**: Elevated cards with images, badges, and action buttons
-- **Form Elements**: Inputs, selects, textareas with retro styling
-- **Interactive Controls**: Checkboxes, radio buttons, switches, and sliders
-- **Display Components**: Badges, avatars, progress bars
-- **Navigation**: Tabs with smooth transitions
-- **Feedback**: Alerts and tooltips for user communication
+## 🎯 Application Structure
+
+### Pages & Features
+- **Landing Page**: Marketing site with features, testimonials, and pricing
+- **Dashboard**: Overview of daily tasks, Virtuas, and progress
+- **Tasks**: Comprehensive task management with filtering and dependencies
+- **Quests**: Goal management system with progress tracking
+- **Virtuas**: Digital companion management and training
+- **Habit Chains**: Sequential habit building system
+- **Achievements**: Rune collection and milestone tracking
+- **Analytics**: Advanced insights with charts, heatmaps, and recommendations
+- **Settings**: User preferences and account management
 
 ### Technical Stack
-- **React 18** with TypeScript for type safety
-- **Tailwind CSS** for utility-first styling
-- **Radix UI** primitives for accessibility
-- **Lucide React** for consistent iconography
-- **Vite** for fast development and building
+- **Frontend**: React 18 with TypeScript for type safety
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: Radix UI primitives for accessibility
+- **Icons**: Lucide React for consistent iconography
+- **State Management**: Zustand for global state
+- **Database**: Supabase for backend services
+- **Charts**: Recharts for data visualization
+- **Build Tool**: Vite for fast development and building
+- **Deployment**: Netlify for hosting
+
+## 🛠️ Getting Started
+
+### Prerequisites
+- [Node.js](https://nodejs.org/en/) (v16 or higher)
+- npm or yarn package manager
+- Supabase account (for database)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd mindforge
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Fill in your Supabase credentials:
+   ```env
+   VITE_SUPABASE_URL=your_supabase_url_here
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key_here
+   ```
+
+4. **Set up Supabase database**
+   - Create a new Supabase project
+   - Run the migration files in the `supabase/migrations` folder
+   - Enable Row Level Security (RLS) on all tables
+
+5. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+6. **Open in browser**
+   Navigate to [http://localhost:5173/](http://localhost:5173/)
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+The built files will be in the `dist/` directory.
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── ui/                     # Reusable UI components
+│   ├── achievements/           # Achievement system components
+│   ├── analytics/              # Analytics and charts
+│   ├── chains/                 # Habit chain components
+│   ├── dashboard/              # Dashboard widgets
+│   ├── gamification/           # XP, levels, streaks
+│   ├── layout/                 # App layout components
+│   ├── mobile/                 # Mobile-specific components
+│   ├── notifications/          # Notification system
+│   ├── quest/                  # Quest management
+│   ├── social/                 # Social sharing features
+│   ├── task/                   # Task management
+│   └── virtua/                 # Virtua (companion) system
+├── pages/                      # Main application pages
+├── lib/                        # Utilities and configurations
+│   ├── store.ts               # Zustand state management
+│   ├── supabase.ts            # Database client and types
+│   └── utils.ts               # Helper functions
+└── index.tsx                  # Application entry point
+```
 
 ## 🎨 Design System
 
@@ -45,7 +146,7 @@ The design system includes comprehensive color ramps:
 - **Neutral (Black)**: `black-10` through `black-100`
 
 ### Typography System
-Complete typography scale based on Figma design specifications:
+Complete typography scale based on design specifications:
 
 #### Display Typography
 - `display-48-black`: 48px, 900 weight, -0.02em spacing
@@ -71,121 +172,60 @@ Complete typography scale based on Figma design specifications:
 - **Border Radius**: Consistent 16px-24px rounded corners
 - **Spacing**: 8px grid system for consistent layouts
 
-## 🛠️ Getting Started
+## 🗄️ Database Schema
 
-### Prerequisites
-- [Node.js](https://nodejs.org/en/) (v16 or higher)
-- npm or yarn package manager
+### Core Tables
+- **users**: User profiles with XP, level, and preferences
+- **virtuas**: Digital companions with domains and evolution stages
+- **quests**: Goal management with progress tracking
+- **tasks**: Task management with dependencies and scheduling
+- **chains**: Habit chain definitions and progress
+- **chain_steps**: Individual steps within habit chains
+- **runes**: Achievement definitions with criteria and rewards
+- **user_runes**: User's earned achievements
+- **streak_logs**: Daily activity tracking for streaks
 
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd anima-project
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-4. **Open in browser**
-   Navigate to [http://localhost:5173/](http://localhost:5173/)
-
-### Build for Production
-
-```bash
-npm run build
-```
-
-The built files will be in the `dist/` directory.
-
-## 📁 Project Structure
-
-```
-src/
-├── components/
-│   └── ui/                 # Reusable UI components
-│       ├── button.tsx      # Enhanced button component
-│       ├── card.tsx        # Card components
-│       ├── content-card.tsx # Content card with image
-│       ├── input.tsx       # Form inputs
-│       ├── slider.tsx      # Custom sliders
-│       └── ...             # Other UI components
-├── screens/
-│   ├── ComponentShowcase/  # Main showcase page
-│   └── Box/                # Button variations demo
-├── lib/
-│   └── utils.ts            # Utility functions
-└── index.tsx               # Application entry point
-```
+### Key Features
+- Row Level Security (RLS) enabled on all tables
+- Automatic timestamp updates with triggers
+- Foreign key relationships for data integrity
+- Enum types for status fields and rarity levels
 
 ## 🎯 Usage Examples
 
-### Basic Button
-```tsx
-import { Button } from "@/components/ui/button";
-
-<Button>Primary Button</Button>
-<Button variant="secondary">Secondary Button</Button>
-<Button variant="outline">Outline Button</Button>
+### Creating a Quest
+```typescript
+const questData = {
+  title: "Learn React",
+  description: "Master React fundamentals",
+  virtua_id: "virtua-id",
+  priority: 3,
+  due_date: "2024-12-31"
+};
 ```
 
-### Content Card
-```tsx
-import { ContentCard } from "@/components/ui/content-card";
-
-<ContentCard
-  title="Mountain Adventure"
-  description="Discover breathtaking landscapes..."
-  imageUrl="https://example.com/image.jpg"
-  badge="Featured"
-  primaryAction={{
-    label: "Explore",
-    onClick: () => console.log("Explore clicked")
-  }}
-/>
+### Task Management
+```typescript
+const taskData = {
+  title: "Complete tutorial",
+  difficulty: 2,
+  priority: 3,
+  xp_reward: 25,
+  tags: ["learning", "react"]
+};
 ```
 
-### Typography
-```tsx
-<h1 className="text-display-48 font-display-48-black text-black-100">
-  Display Heading
-</h1>
-<p className="text-text-16-reg font-text-16-reg text-black-60">
-  Body text content
-</p>
+### Virtua Training
+```typescript
+const virtuaData = {
+  name: "Focus Spirit",
+  domain: "Learning",
+  traits: {
+    personality: "Determined",
+    preferences: "Morning tasks"
+  }
+};
 ```
-
-## 🎨 Customization
-
-### Extending Colors
-Add new colors to `tailwind.css`:
-
-```css
-:root {
-  --custom-color-10: rgba(255, 0, 0, 0.1);
-  --custom-color-50: rgba(255, 0, 0, 1);
-}
-```
-
-Then reference in `tailwind.config.js`:
-
-```js
-colors: {
-  "custom-10": "var(--custom-color-10)",
-  "custom-50": "var(--custom-color-50)",
-}
-```
-
-### Adding Typography
-Define new typography variables in `tailwind.css` and add corresponding utilities in `tailwind.config.js`.
 
 ## 🔧 Development
 
@@ -196,13 +236,14 @@ Define new typography variables in `tailwind.css` and add corresponding utilitie
 
 ### Code Style
 - TypeScript for type safety
-- Consistent component structure
-- Tailwind CSS for styling
+- Consistent component structure with proper prop interfaces
+- Tailwind CSS for styling with custom design system
 - Semantic HTML for accessibility
+- ESLint and Prettier for code formatting
 
 ## 📱 Responsive Design
 
-The design system is mobile-first with breakpoints:
+The application is mobile-first with breakpoints:
 - **Mobile**: Default (320px+)
 - **Tablet**: md (768px+)
 - **Desktop**: lg (1024px+)
@@ -216,6 +257,21 @@ The design system is mobile-first with breakpoints:
 - Screen reader friendly
 - Semantic HTML structure
 - Focus management
+- ARIA labels and descriptions
+
+## 🚀 Deployment
+
+The application is deployed on Netlify with automatic builds from the main branch.
+
+### Manual Deployment
+1. Build the project: `npm run build`
+2. Deploy the `dist` folder to your hosting provider
+3. Configure environment variables on your hosting platform
+
+### Environment Variables
+Required for production:
+- `VITE_SUPABASE_URL`: Your Supabase project URL
+- `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
 
 ## 🤝 Contributing
 
@@ -225,25 +281,35 @@ The design system is mobile-first with breakpoints:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+### Development Guidelines
+- Follow the existing code style and patterns
+- Add TypeScript types for all new components
+- Include proper error handling
+- Test responsive design on multiple devices
+- Ensure accessibility compliance
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgments
 
-- **Anima** for the initial design system generation
+- **Supabase** for backend infrastructure
 - **Radix UI** for accessible component primitives
 - **Tailwind CSS** for utility-first styling
 - **Lucide** for beautiful icons
+- **Recharts** for data visualization
 - **Inter Font** for typography
 
 ## 📞 Support
 
 For questions, issues, or contributions:
 - Open an issue on GitHub
-- Check the live demo for component examples
-- Review the component showcase for implementation details
+- Check the live demo for feature examples
+- Review the component documentation
 
 ---
 
-**Built with ❤️ using React, TypeScript, and Tailwind CSS**
+**Built with ❤️ using React, TypeScript, Tailwind CSS, and Supabase**
+
+**Live Demo**: https://dancing-bombolone-5fccb4.netlify.app/
