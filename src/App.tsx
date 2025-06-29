@@ -4,6 +4,8 @@ import { AppLayout } from '@/components/layout/AppLayout';
 import { Dashboard } from '@/pages/Dashboard';
 import { Quests } from '@/pages/Quests';
 import { QuestDetail } from '@/pages/QuestDetail';
+import { Virtuas } from '@/pages/Virtuas';
+import { Achievements } from '@/pages/Achievements';
 import { Login } from '@/pages/Login';
 import { useStore } from '@/lib/store';
 import { supabase } from '@/lib/supabase';
@@ -67,8 +69,8 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="quests" element={<Quests />} />
           <Route path="quest/:id" element={<QuestDetail />} />
-          <Route path="virtuas" element={<div>Virtuas (Coming Soon)</div>} />
-          <Route path="achievements" element={<div>Achievements (Coming Soon)</div>} />
+          <Route path="virtuas" element={<Virtuas />} />
+          <Route path="achievements" element={<Achievements />} />
           <Route path="settings" element={<div>Settings (Coming Soon)</div>} />
         </Route>
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
