@@ -10,7 +10,8 @@ import {
   Settings, 
   Menu,
   X,
-  LogOut
+  LogOut,
+  CheckSquare
 } from 'lucide-react';
 import { useStore } from '@/lib/store';
 import { Button } from '@/components/ui/button';
@@ -18,6 +19,7 @@ import { supabase } from '@/lib/supabase';
 
 const navItems = [
   { to: '/dashboard', icon: Home, label: 'Dashboard' },
+  { to: '/tasks', icon: CheckSquare, label: 'Tasks' },
   { to: '/quests', icon: Target, label: 'Quests' },
   { to: '/chains', icon: Link, label: 'Habit Chains' },
   { to: '/virtuas', icon: Zap, label: 'Virtuas' },
@@ -56,8 +58,8 @@ export const Sidebar: React.FC = () => {
         shadow-[4px_0_0_#001428,8px_0_12px_rgba(0,20,40,0.3)]
       `}>
         {/* Header */}
-        <div className="p-4 border-b-2 border-black-100">
-          <div className="flex items-center justify-between">
+        <div className={`p-4 border-b-2 border-black-100 ${!sidebarOpen ? 'flex justify-center' : ''}`}>
+          <div className={`flex items-center ${sidebarOpen ? 'justify-between' : 'justify-center'}`}>
             {sidebarOpen && (
               <h1 className="text-title-20 font-title-20-black text-black-100">
                 MindForge
@@ -76,29 +78,37 @@ export const Sidebar: React.FC = () => {
         </div>
 
         {/* Navigation */}
-        <nav className="p-4 space-y-2 flex-1">
+        <nav className="p-2 space-y-1 flex-1 overflow-y-auto">
           {navItems.map(({ to, icon: Icon, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              className={({ isActive }) => `
-                flex items-center gap-3 p-3 rounded-xl transition-all duration-200
-                border-2 border-transparent hover:border-black-100
-                ${isActive 
-                  ? 'bg-primarysolid-50 text-black-100 shadow-[-2px_4px_0px_#001428]' 
-                  : 'hover:bg-primarysolid-20 text-black-70'
-                }
-                ${!sidebarOpen ? 'justify-center' : ''}
-              `}
-              title={!sidebarOpen ? label : undefined}
-            >
-              <Icon size={20} />
-              {sidebarOpen && (
-                <span className="text-text-16-med font-text-16-med">
+            <div key={to} className="relative group">
+              <NavLink
+                to={to}
+                className={({ isActive }) => `
+                  flex items-center gap-3 p-3 rounded-xl transition-all duration-200
+                  border-2 border-transparent hover:border-black-100
+                  ${isActive 
+                    ? 'bg-primarysolid-50 text-black-100 shadow-[-2px_4px_0px_#001428]' 
+                    : 'hover:bg-primarysolid-20 text-black-70'
+                  }
+                  ${!sidebarOpen ? 'justify-center w-12 h-12 mx-auto' : ''}
+                `}
+              >
+                <Icon size={20} className="flex-shrink-0" />
+                {sidebarOpen && (
+                  <span className="text-text-16-med font-text-16-med">
+                    {label}
+                  </span>
+                )}
+              </NavLink>
+              
+              {/* Tooltip for collapsed state */}
+              {!sidebarOpen && (
+                <div className="absolute left-full top-1/2 transform -translate-y-1/2 ml-2 px-2 py-1 bg-black-100 text-white-100 text-caption-11-reg font-caption-11-reg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
                   {label}
-                </span>
+                  <div className="absolute right-full top-1/2 transform -translate-y-1/2 border-4 border-transparent border-r-black-100"></div>
+                </div>
               )}
-            </NavLink>
+            </div>
           ))}
         </nav>
 
@@ -108,7 +118,7 @@ export const Sidebar: React.FC = () => {
             <div className="space-y-3">
               <div className="p-3 bg-secondarysolid-10 rounded-xl border-2 border-black-100">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-primarysolid-50 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-primarysolid-50 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-text-12-med font-text-12-med text-black-100">
                       {user?.display_name?.[0] || 'U'}
                     </span>
@@ -134,21 +144,28 @@ export const Sidebar: React.FC = () => {
               </Button>
             </div>
           ) : (
-            <div className="space-y-2">
-              <div className="w-8 h-8 bg-primarysolid-50 rounded-full flex items-center justify-center mx-auto">
+            <div className="space-y-2 flex flex-col items-center">
+              <div className="w-8 h-8 bg-primarysolid-50 rounded-full flex items-center justify-center">
                 <span className="text-text-12-med font-text-12-med text-black-100">
                   {user?.display_name?.[0] || 'U'}
                 </span>
               </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleSignOut}
-                className="p-2 w-full"
-                title="Sign Out"
-              >
-                <LogOut size={16} />
-              </Button>
+              <div className="relative group">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleSignOut}
+                  className="p-2 w-8 h-8"
+                >
+                  <LogOut size={16} />
+                </Button>
+                
+                {/* Tooltip for sign out button */}
+                <div className="absolute left-full top-1/2 transform -translate-y-1/2 ml-2 px-2 py-1 bg-black-100 text-white-100 text-caption-11-reg font-caption-11-reg rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+                  Sign Out
+                  <div className="absolute right-full top-1/2 transform -translate-y-1/2 border-4 border-transparent border-r-black-100"></div>
+                </div>
+              </div>
             </div>
           )}
         </div>
