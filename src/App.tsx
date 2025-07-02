@@ -12,6 +12,7 @@ import { Tasks } from '@/pages/Tasks';
 import { Settings } from '@/pages/Settings';
 import { Login } from '@/pages/Login';
 import { Landing } from '@/pages/Landing';
+import { CaseStudy } from '@/pages/CaseStudy';
 import { LevelUpModal } from '@/components/gamification/LevelUpModal';
 import { AchievementToast } from '@/components/gamification/AchievementToast';
 import { useStore } from '@/lib/store';
@@ -77,6 +78,7 @@ function App() {
         {/* Public routes */}
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/case-study" element={<CaseStudy />} />
         
         {/* Protected routes */}
         {user ? (
