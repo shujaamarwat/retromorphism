@@ -2,11 +2,11 @@
 
 A comprehensive gamified productivity application that transforms real-life goals into RPG-style quests. Built with React, TypeScript, Tailwind CSS, and Supabase.
 
-## 🚀 Live Demo
+## Live Demo
 
 **[View Live Demo →](https://dancing-bombolone-5fccb4.netlify.app/)**
 
-## ✨ Features
+## Features
 
 ### Core Functionality
 - **Epic Quests**: Transform your goals into engaging RPG-style adventures with clear objectives and rewards
@@ -30,7 +30,7 @@ A comprehensive gamified productivity application that transforms real-life goal
 - **Typography Scale**: Complete typography system from display (48px) to caption (10px) sizes
 - **Accessibility First**: WCAG compliant with proper contrast ratios and semantic HTML
 
-## 🎯 Application Structure
+## Application Structure
 
 ### Pages & Features
 - **Landing Page**: Marketing site with features, testimonials, and pricing
@@ -54,7 +54,7 @@ A comprehensive gamified productivity application that transforms real-life goal
 - **Build Tool**: Vite for fast development and building
 - **Deployment**: Netlify for hosting
 
-## 🛠️ Getting Started
+## Getting Started
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/en/) (v16 or higher)
@@ -132,7 +132,7 @@ src/
 └── index.tsx                  # Application entry point
 ```
 
-## 🎨 Design System
+## Design System
 
 ### Color Palette
 The design system includes comprehensive color ramps:
@@ -172,7 +172,7 @@ Complete typography scale based on design specifications:
 - **Border Radius**: Consistent 16px-24px rounded corners
 - **Spacing**: 8px grid system for consistent layouts
 
-## 🗄️ Database Schema
+## Database Schema
 
 ### Core Tables
 - **users**: User profiles with XP, level, and preferences
@@ -191,7 +191,7 @@ Complete typography scale based on design specifications:
 - Foreign key relationships for data integrity
 - Enum types for status fields and rarity levels
 
-## 🎯 Usage Examples
+## Usage Examples
 
 ### Creating a Quest
 ```typescript
@@ -227,7 +227,7 @@ const virtuaData = {
 };
 ```
 
-## 🔧 Development
+## Development
 
 ### Available Scripts
 - `npm run dev` - Start development server
@@ -241,7 +241,7 @@ const virtuaData = {
 - Semantic HTML for accessibility
 - ESLint and Prettier for code formatting
 
-## 📱 Responsive Design
+## Responsive Design
 
 The application is mobile-first with breakpoints:
 - **Mobile**: Default (320px+)
@@ -259,7 +259,7 @@ The application is mobile-first with breakpoints:
 - Focus management
 - ARIA labels and descriptions
 
-## 🚀 Deployment
+## Deployment
 
 The application is deployed on Netlify with automatic builds from the main branch.
 
@@ -273,7 +273,7 @@ Required for production:
 - `VITE_SUPABASE_URL`: Your Supabase project URL
 - `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -292,7 +292,7 @@ Required for production:
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Supabase** for backend infrastructure
 - **Radix UI** for accessible component primitives
@@ -301,7 +301,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - **Recharts** for data visualization
 - **Inter Font** for typography
 
-## 📞 Support
+## Support
 
 For questions, issues, or contributions:
 - Open an issue on GitHub
@@ -310,6 +310,6 @@ For questions, issues, or contributions:
 
 ---
 
-**Built with ❤️ using React, TypeScript, Tailwind CSS, and Supabase**
+**Built with React, TypeScript, Tailwind CSS, and Supabase**
 
 **Live Demo**: https://dancing-bombolone-5fccb4.netlify.app/
